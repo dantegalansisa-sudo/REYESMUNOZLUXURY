@@ -1198,3 +1198,7 @@
 /* dealer-mode */
 .navbar__links { display: none; }
 .navbar__cta { display: none; }
+
+/* logo states */
+.navbar__logo-img { filter: brightness(0); transition: filter 0.3s ease; }
+.navbar.scrolled .navbar__logo-img { filter: brightness(0) invert(1); }
