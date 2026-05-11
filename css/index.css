@@ -1202,3 +1202,131 @@
 /* logo states */
 .navbar__logo-img { filter: brightness(0); transition: filter 0.3s ease; }
 .navbar.scrolled .navbar__logo-img { filter: brightness(0) invert(1); }
+
+/* ═══════════════════════════════════════════
+   HERO MOBILE — layout vertical ≤ 768px
+   Orden: badge → círculo+carro → título →
+          línea+subfrase → search → cats
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* 1. Ocultar redes sociales verticales */
+  .hero__socials { display: none; }
+
+  /* 2. Hero container: columna centrada */
+  .hero__inner {
+    flex-direction: column;
+    align-items: center;
+    padding: 90px 20px 56px;
+    min-height: auto;
+    gap: 0;
+  }
+
+  /* 3. Disolver hero__text: sus hijos pasan a ser
+        flex items directos de hero__inner          */
+  .hero__text {
+    display: contents;
+  }
+
+  /* ── Orden de aparición ── */
+  .hero__badge  { order: 1; }
+  .hero__visual { order: 2; }
+  .hero__title  { order: 3; }
+  .hero__sub    { order: 4; }
+  .hero__search { order: 5; }
+  .hero__cats   { order: 6; }
+
+  /* ── Badge ── */
+  .hero__badge {
+    font-size: 9px;
+    max-width: 90%;
+    white-space: normal;
+    text-align: center;
+    align-self: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ── Visual: caja centrada para el círculo ── */
+  .hero__visual {
+    flex: none;
+    width: 100%;
+    min-height: auto;
+    position: relative;      /* era absolute desde shared */
+    height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  /* Círculo 260 × 260, centrado */
+  .hero__slider-wrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+  }
+
+  /* Carro: 180% del diámetro = 468px */
+  .hero__cars {
+    width: 468px;
+    height: 260px;
+  }
+
+  /* Dots debajo del círculo, centrados */
+  .hero__dots {
+    bottom: -24px;
+    gap: 8px;
+  }
+
+  /* ── Headline ── */
+  .hero__title {
+    font-size: clamp(36px, 8vw, 48px);
+    width: 100%;
+    align-self: flex-start;
+    margin-bottom: 0;
+  }
+
+  /* ── Subfrase (la línea roja viene del ::before) ── */
+  .hero__sub {
+    font-size: 16px;
+    max-width: 100%;
+    align-self: flex-start;
+    margin-bottom: 24px;
+  }
+
+  /* ── Search bar ── */
+  .hero__search {
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+  }
+  .hero__select {
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  /* ── Categorías ── */
+  .hero__cats {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+    align-self: flex-start;
+    margin-top: 12px;
+  }
+
+  /* ── Disclaimer (banda inferior) ── */
+  .hero__disclaimer {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 32px;
+    text-align: center;
+  }
+}
