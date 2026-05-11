@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario — Matos Dealer</title>
+  <meta name="description" content="Explora nuestro inventario completo de vehículos premium en Santo Domingo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css?v=4">
+  <link rel="stylesheet" href="css/inventario.css?v=4">
+  <link rel="stylesheet" href="css/pages.css?v=1">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar__logo">MATOS <span>DEALER</span></a>
+    <div class="navbar__links">
+      <a href="index.html">Inicio</a>
+      <a href="inventario.html">Inventario</a>
+      <a href="index.html#marcas">Marcas</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." class="navbar__whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.855 0-3.63-.5-5.182-1.446l-.37-.222-3.842 1.007 1.024-3.742-.243-.387A9.78 9.78 0 012.182 12c0-5.41 4.408-9.818 9.818-9.818S21.818 6.59 21.818 12s-4.408 9.818-9.818 9.818z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <button class="navbar__burger" id="burger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">Inicio</a>
+    <a href="inventario.html" class="mobile-link">Inventario</a>
+    <a href="index.html#marcas" class="mobile-link">Marcas</a>
+    <a href="index.html#servicios" class="mobile-link">Servicios</a>
+    <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:16px;">
+      <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.855 0-3.63-.5-5.182-1.446l-.37-.222-3.842 1.007 1.024-3.742-.243-.387A9.78 9.78 0 012.182 12c0-5.41 4.408-9.818 9.818-9.818S21.818 6.59 21.818 12s-4.408 9.818-9.818 0z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MINI HERO
+  ═══════════════════════════════════════════ -->
+  <section class="inv-hero">
+    <div class="section-header" style="margin-bottom:0">
+      <p class="section-label" style="color:var(--color-accent)">Nuestro Inventario</p>
+      <h1 class="inv-hero__title">Encuentra tu <strong>Vehículo Ideal</strong></h1>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STICKY SEARCH BAR
+  ═══════════════════════════════════════════ -->
+  <div class="inv-search" id="invSearch">
+    <div class="inv-search__inner">
+      <svg class="inv-search__icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar por marca, modelo, tipo..." autocomplete="off">
+      <button class="inv-search__clear" id="searchClear" style="display:none">&times;</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT (SIDEBAR + RESULTS)
+  ═══════════════════════════════════════════ -->
+  <main class="inv-main">
+    <!-- FILTER OVERLAY (mobile) -->
+    <div class="inv-filters-overlay" id="filtersOverlay"></div>
+
+    <!-- FILTER SIDEBAR -->
+    <aside class="inv-filters" id="filterSidebar">
+      <div class="inv-filters__header">
+        <h3 class="inv-filters__title">Filtros</h3>
+        <button class="inv-filters__close" id="filtersClose">&times;</button>
+        <button class="inv-filters__reset" id="resetFilters">Limpiar todo</button>
+      </div>
+
+      <!-- Condicion -->
+      <div class="inv-filter-group">
+        <h4 class="inv-filter-group__title">Condición</h4>
+        <label class="inv-checkbox"><input type="checkbox" value="Nuevo" name="condicion"> Nuevo</label>
+        <label class="inv-checkbox"><input type="checkbox" value="Usado" name="condicion"> Usado</label>
+      </div>
+
+      <!-- Marca - populated by JS -->
+      <div class="inv-filter-group">
+        <h4 class="inv-filter-group__title">Marca</h4>
+        <div id="brandFilters"></div>
+      </div>
+
+      <!-- Tipo - populated by JS -->
+      <div class="inv-filter-group">
+        <h4 class="inv-filter-group__title">Tipo</h4>
+        <div id="typeFilters"></div>
+      </div>
+
+      <!-- Año -->
+      <div class="inv-filter-group">
+        <h4 class="inv-filter-group__title">Año</h4>
+        <div class="inv-range-row">
+          <select id="yearFrom"><option value="">Desde</option></select>
+          <span>—</span>
+          <select id="yearTo"><option value="">Hasta</option></select>
+        </div>
+      </div>
+
+      <!-- Precio -->
+      <div class="inv-filter-group">
+        <h4 class="inv-filter-group__title">Precio (RD$)</h4>
+        <div class="inv-range-row">
+          <select id="priceFrom"><option value="">Mínimo</option></select>
+          <span>—</span>
+          <select id="priceTo"><option value="">Máximo</option></select>
+        </div>
+      </div>
+
+      <!-- Combustible -->
+      <div class="inv-filter-group">
+        <h4 class="inv-filter-group__title">Combustible</h4>
+        <div id="fuelFilters"></div>
+      </div>
+
+      <!-- Transmision -->
+      <div class="inv-filter-group">
+        <h4 class="inv-filter-group__title">Transmisión</h4>
+        <label class="inv-checkbox"><input type="checkbox" value="Automatica" name="transmision"> Automática</label>
+        <label class="inv-checkbox"><input type="checkbox" value="Manual" name="transmision"> Manual</label>
+      </div>
+    </aside>
+
+    <!-- RESULTS -->
+    <section class="inv-results">
+      <div class="inv-toolbar">
+        <p class="inv-toolbar__count" id="resultCount"></p>
+        <div class="inv-toolbar__actions">
+          <button class="inv-toolbar__filter-btn" id="mobileFilterToggle">
+            <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="16" y2="12"/><line x1="4" y1="18" x2="12" y2="18"/></svg>
+            Filtros
+          </button>
+          <select class="inv-sort" id="sortSelect">
+            <option value="recientes">Más recientes</option>
+            <option value="precio-asc">Precio: menor a mayor</option>
+            <option value="precio-desc">Precio: mayor a menor</option>
+            <option value="ano-desc">Año: más nuevo</option>
+            <option value="ano-asc">Año: más antiguo</option>
+            <option value="marca-az">Marca: A-Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="inv-active-filters" id="activeFilters"></div>
+      <div class="inv-grid" id="vehicleGrid"></div>
+
+      <div class="inv-pagination" id="pagination">
+        <button class="btn btn--dark" id="loadMoreBtn">Cargar Más Vehículos</button>
+      </div>
+
+      <div class="inv-empty" id="emptyState" style="display:none">
+        <svg viewBox="0 0 24 24" style="width:64px;height:64px;stroke:var(--color-text-muted);fill:none;stroke-width:1"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <h3>No se encontraron vehículos</h3>
+        <p>Intenta con otros filtros o contáctanos por WhatsApp</p>
+        <button class="btn btn--accent" id="emptyReset">Limpiar Filtros</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand-name">MATOS <span>DEALER</span></p>
+        <p class="footer__brand-text">Tu dealer de confianza en Azua, República Dominicana. Vehículos de todas las marcas con garantía, financiamiento y traspaso incluido.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading">Navegación</h4>
+        <ul class="footer__links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="inventario.html">Inventario</a></li>
+          <li><a href="index.html#marcas">Marcas</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Marcas</h4>
+        <ul class="footer__links">
+          <li><a href="index.html#marcas">Toyota</a></li>
+          <li><a href="index.html#marcas">Honda</a></li>
+          <li><a href="index.html#marcas">Hyundai</a></li>
+          <li><a href="index.html#marcas">Kia</a></li>
+          <li><a href="index.html#marcas">Nissan</a></li>
+          <li><a href="index.html#marcas">Mitsubishi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Contacto</h4>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Azua de Compostela,<br>República Dominicana</span>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>829-680-6829<br>809-953-0495</span>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>WhatsApp disponible</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Isidro Motors. Todos los derechos reservados.</p>
+      <div class="footer__socials">
+        <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       FLOATING WHATSAPP BUTTON
+  ═══════════════════════════════════════════ -->
+  <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.855 0-3.63-.5-5.182-1.446l-.37-.222-3.842 1.007 1.024-3.742-.243-.387A9.78 9.78 0 012.182 12c0-5.41 4.408-9.818 9.818-9.818S21.818 6.59 21.818 12s-4.408 9.818-9.818 9.818z"/></svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════ -->
+  <script src="js/vehiculos-data.js?v=4"></script>
+  <script src="js/features.js?v=1"></script>
+  <script src="js/shared.js?v=4"></script>
+  <script src="js/inventario.js?v=4"></script>
+</body>
+</html>

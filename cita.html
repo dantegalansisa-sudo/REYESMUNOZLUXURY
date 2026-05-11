@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Visita — Matos Dealer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css?v=6">
+  <link rel="stylesheet" href="css/index.css?v=6">
+  <link rel="stylesheet" href="css/pages.css?v=1">
+</head>
+<body>
+  <div data-shell="navbar"></div>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <span class="page-header__eyebrow">— Agenda</span>
+      <h1 class="page-header__title">Reserva tu <em>visita privada</em>.</h1>
+      <p class="page-header__lede">Selecciona fecha y hora. Te confirmamos en menos de una hora con un asesor dedicado, ruta sugerida para el test drive y tiempo de exhibición sin presión.</p>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="page-section__inner">
+      <div class="booking-grid">
+        <div class="booking-cal">
+          <h3 class="booking-cal__title">Selecciona fecha</h3>
+          <div class="booking-cal__nav">
+            <button id="prevMonth" aria-label="Mes anterior">‹</button>
+            <span class="booking-cal__month" id="monthLabel"></span>
+            <button id="nextMonth" aria-label="Mes siguiente">›</button>
+          </div>
+          <div class="booking-cal__grid" id="calGrid"></div>
+          <div class="booking-cal__times" id="timesGrid" style="display:none"></div>
+        </div>
+
+        <form class="booking-form" id="bookingForm" onsubmit="event.preventDefault();">
+          <h3 class="booking-form__title">Tus datos</h3>
+          <input type="text" name="nombre" placeholder="Nombre completo" required>
+          <input type="tel" name="telefono" placeholder="Teléfono" required>
+          <input type="email" name="email" placeholder="Email">
+          <select name="tipo">
+            <option value="">Tipo de visita</option>
+            <option>Conocer un vehículo específico</option>
+            <option>Test drive</option>
+            <option>Asesoría general</option>
+            <option>Valoración de mi vehículo actual</option>
+          </select>
+          <textarea name="nota" placeholder="¿Algún detalle adicional?"></textarea>
+          <p id="bookingSummary" style="font-family:'Source Sans 3',sans-serif;color:var(--ink-500);font-size:0.9rem;margin:0">Selecciona una fecha y hora en el calendario.</p>
+          <button type="submit">Confirmar visita</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div data-shell="footer"></div>
+
+  <script src="js/features.js?v=1"></script>
+  <script src="js/page-shell.js?v=1"></script>
+  <script>
+  (function () {
+    const TIMES = ['09:30', '11:00', '12:30', '14:30', '16:00', '17:30'];
+    const monthNames = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    const dayNames = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+    let viewDate = new Date();
+    viewDate.setDate(1);
+    let selectedDay = null;
+    let selectedTime = null;
+
+    const calGrid = document.getElementById('calGrid');
+    const timesGrid = document.getElementById('timesGrid');
+    const monthLabel = document.getElementById('monthLabel');
+    const summary = document.getElementById('bookingSummary');
+
+    function render() {
+      const y = viewDate.getFullYear();
+      const m = viewDate.getMonth();
+      monthLabel.textContent = monthNames[m] + ' ' + y;
+      const firstDay = (new Date(y, m, 1).getDay() + 6) % 7; // 0 = Mon
+      const lastDate = new Date(y, m + 1, 0).getDate();
+      const today = new Date(); today.setHours(0,0,0,0);
+      let html = '';
+      dayNames.forEach(d => html += `<div class="booking-cal__head">${d}</div>`);
+      for (let i = 0; i < firstDay; i++) html += `<div class="booking-cal__day is-empty"></div>`;
+      for (let d = 1; d <= lastDate; d++) {
+        const date = new Date(y, m, d);
+        const isPast = date < today;
+        const isSunday = date.getDay() === 0;
+        const disabled = isPast || isSunday;
+        const sel = selectedDay && selectedDay.getTime() === date.getTime();
+        html += `<div class="booking-cal__day ${disabled ? 'is-disabled' : ''} ${sel ? 'is-selected' : ''}" data-d="${date.toISOString()}">${d}</div>`;
+      }
+      calGrid.innerHTML = html;
+    }
+
+    function renderTimes() {
+      if (!selectedDay) { timesGrid.style.display = 'none'; return; }
+      timesGrid.style.display = '';
+      timesGrid.innerHTML = TIMES.map(t =>
+        `<div class="booking-cal__time ${selectedTime===t?'is-selected':''}" data-t="${t}">${t}</div>`
+      ).join('');
+    }
+
+    function updateSummary() {
+      if (!selectedDay) { summary.textContent = 'Selecciona una fecha y hora en el calendario.'; return; }
+      const f = selectedDay.toLocaleDateString('es-DO', { weekday:'long', day:'numeric', month:'long' });
+      summary.innerHTML = `<strong>Fecha:</strong> ${f} ${selectedTime ? '· <strong>Hora:</strong> ' + selectedTime : ''}`;
+    }
+
+    calGrid.addEventListener('click', (e) => {
+      const d = e.target.closest('.booking-cal__day');
+      if (!d || d.classList.contains('is-disabled') || d.classList.contains('is-empty')) return;
+      selectedDay = new Date(d.dataset.d);
+      selectedTime = null;
+      render(); renderTimes(); updateSummary();
+    });
+    timesGrid.addEventListener('click', (e) => {
+      const t = e.target.closest('.booking-cal__time');
+      if (!t) return;
+      selectedTime = t.dataset.t;
+      renderTimes(); updateSummary();
+    });
+    document.getElementById('prevMonth').addEventListener('click', () => { viewDate.setMonth(viewDate.getMonth() - 1); render(); });
+    document.getElementById('nextMonth').addEventListener('click', () => { viewDate.setMonth(viewDate.getMonth() + 1); render(); });
+
+    document.getElementById('bookingForm').addEventListener('submit', () => {
+      if (!selectedDay || !selectedTime) {
+        MatosModal.open(`<h2>Selección <em>incompleta</em></h2><p>Por favor selecciona una fecha y una hora antes de confirmar.</p>`);
+        return;
+      }
+      const f = selectedDay.toLocaleDateString('es-DO', { weekday:'long', day:'numeric', month:'long' });
+      MatosModal.open(`
+        <div class="modal__success">
+          <div class="check">✓</div>
+          <h2>Visita <em>reservada</em></h2>
+          <p>Te esperamos el <strong>${f}</strong> a las <strong>${selectedTime}</strong>.<br>Un asesor confirmará por WhatsApp en menos de 1 hora.</p>
+          <a href="https://wa.me/18293189380?text=Hola%2C%20acabo%20de%20reservar%20una%20visita%20a%20trav%C3%A9s%20de%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29.%20Quedo%20atento%20a%20la%20confirmaci%C3%B3n." target="_blank" rel="noopener" class="btn-cinema btn-cinema--solid" style="margin-top:8px">Abrir WhatsApp</a>
+        </div>`);
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>

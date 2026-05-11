@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparar Vehículos — Matos Dealer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css?v=6">
+  <link rel="stylesheet" href="css/index.css?v=6">
+  <link rel="stylesheet" href="css/pages.css?v=1">
+</head>
+<body>
+  <div data-shell="navbar"></div>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <span class="page-header__eyebrow">— Comparar</span>
+      <h1 class="page-header__title">Lado a <em>lado</em>.</h1>
+      <p class="page-header__lede">Compara dos vehículos de nuestro inventario. Specs, precios y condición — todo en una vista para que tomes la mejor decisión.</p>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="page-section__inner">
+      <div class="compare__chooser">
+        <select id="vehA"></select>
+        <select id="vehB"></select>
+      </div>
+
+      <div style="margin-top:32px" id="compareWrap"></div>
+    </div>
+  </section>
+
+  <div data-shell="footer"></div>
+
+  <script src="js/vehiculos-data.js?v=4"></script>
+  <script src="js/features.js?v=1"></script>
+  <script src="js/page-shell.js?v=1"></script>
+  <script>
+  (function () {
+    const ROWS = [
+      ['Marca', v => v.marca],
+      ['Modelo', v => v.modelo],
+      ['Año', v => v.ano],
+      ['Tipo', v => v.tipo],
+      ['Condición', v => v.condicion],
+      ['Color', v => v.color || '—'],
+      ['Combustible', v => v.combustible],
+      ['Transmisión', v => v.transmision],
+      ['Kilometraje', v => v.kilometraje > 0 ? v.kilometraje.toLocaleString('es-DO') + ' km' : '0 km'],
+      ['Precio', v => v.precioConsultar ? 'A consultar' : 'RD$ ' + v.precio.toLocaleString('es-DO')]
+    ];
+    const a = document.getElementById('vehA');
+    const b = document.getElementById('vehB');
+    const opts = VEHICULOS.map(v => `<option value="${v.id}">${v.marca} ${v.modelo} ${v.ano}</option>`).join('');
+    a.innerHTML = '<option value="">— Selecciona vehículo —</option>' + opts;
+    b.innerHTML = '<option value="">— Selecciona vehículo —</option>' + opts;
+    a.value = VEHICULOS[0].id;
+    b.value = VEHICULOS[1].id;
+
+    function find(id) { return VEHICULOS.find(v => String(v.id) === String(id)); }
+    function header(v) {
+      if (!v) return '<div class="compare__cell compare__cell--header compare__cell--empty">Selecciona un vehículo</div>';
+      return `<div class="compare__cell compare__cell--header">
+        <img src="${v.imagenes?.[0] || ''}" alt="${v.marca} ${v.modelo}">
+        <div class="brand">${v.marca}</div>
+        <div class="name">${v.modelo} · ${v.ano}</div>
+      </div>`;
+    }
+    function render() {
+      const va = find(a.value);
+      const vb = find(b.value);
+      const wrap = document.getElementById('compareWrap');
+      let html = `<div class="compare">`;
+      html += `<div class="compare__label">&nbsp;</div>${header(va)}${header(vb)}`;
+      ROWS.forEach(([label, fn]) => {
+        html += `<div class="compare__label">${label}</div>`;
+        html += `<div class="compare__cell" data-label="${label}">${va ? fn(va) : '—'}</div>`;
+        html += `<div class="compare__cell" data-label="${label}">${vb ? fn(vb) : '—'}</div>`;
+      });
+      html += `</div>`;
+      wrap.innerHTML = html;
+    }
+    a.addEventListener('change', render);
+    b.addEventListener('change', render);
+    render();
+  })();
+  </script>
+</body>
+</html>

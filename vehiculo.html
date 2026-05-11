@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehículo — Matos Dealer</title>
+  <meta name="description" content="Detalle del vehículo — Matos Dealer, concesionario premium en Santo Domingo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css?v=4">
+  <link rel="stylesheet" href="css/vehiculo.css?v=4">
+  <link rel="stylesheet" href="css/pages.css?v=1">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar__logo">MATOS <span>DEALER</span></a>
+    <div class="navbar__links">
+      <a href="index.html">Inicio</a>
+      <a href="inventario.html">Inventario</a>
+      <a href="index.html#marcas">Marcas</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." class="navbar__whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.855 0-3.63-.5-5.182-1.446l-.37-.222-3.842 1.007 1.024-3.742-.243-.387A9.78 9.78 0 012.182 12c0-5.41 4.408-9.818 9.818-9.818S21.818 6.59 21.818 12s-4.408 9.818-9.818 9.818z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <button class="navbar__burger" id="burger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="inventario.html">Inventario</a>
+    <a href="index.html#marcas">Marcas</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:16px;">
+      <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       BREADCRUMB
+  ═══════════════════════════════════════════ -->
+  <div class="detail-breadcrumb">
+    <div class="detail-breadcrumb__inner">
+      <a href="index.html">Inicio</a>
+      <span class="detail-breadcrumb__sep">›</span>
+      <a href="inventario.html">Inventario</a>
+      <span class="detail-breadcrumb__sep">›</span>
+      <span class="detail-breadcrumb__current" id="breadcrumbCurrent">Vehículo</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN DETAIL
+  ═══════════════════════════════════════════ -->
+  <section class="detail-main">
+    <div class="detail-main__inner">
+
+      <!-- LEFT: Image Gallery -->
+      <div class="detail-gallery">
+        <div class="detail-gallery__main" id="galleryMain" style="cursor:zoom-in; position:relative">
+          <img id="mainImage" src="" alt="Vehículo">
+          <button id="vehWishBtn" class="wish-btn" data-wish-id="" aria-label="Guardar en favoritos">
+            <svg viewBox="0 0 24 24"><path class="wish-fill wish-stroke" stroke="currentColor" stroke-width="1.6" fill="none" d="M12 21s-7-4.534-7-10a4.5 4.5 0 0 1 8-2.83A4.5 4.5 0 0 1 19 11c0 5.466-7 10-7 10z"/></svg>
+          </button>
+        </div>
+        <div class="detail-gallery__thumbs" id="thumbStrip"></div>
+      </div>
+
+      <!-- RIGHT: Vehicle Info -->
+      <div class="detail-info">
+        <div class="detail-info__badges" id="detailBadges"></div>
+        <h1 class="detail-info__title" id="detailTitle"></h1>
+        <p class="detail-info__subtitle" id="detailSubtitle"></p>
+
+        <p class="detail-info__price-old" id="detailPriceOld" style="display:none"></p>
+        <p class="detail-info__price" id="detailPrice"></p>
+        <p class="detail-info__finance">Financiamiento disponible · Aceptamos tu vehículo</p>
+
+        <!-- Quick Specs -->
+        <div class="detail-quick-specs">
+          <div class="detail-quick-spec">
+            <svg class="detail-quick-spec__icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <p class="detail-quick-spec__value" id="qsAno"></p>
+            <p class="detail-quick-spec__label">Año</p>
+          </div>
+          <div class="detail-quick-spec">
+            <svg class="detail-quick-spec__icon" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+            <p class="detail-quick-spec__value" id="qsKm"></p>
+            <p class="detail-quick-spec__label">Kilometraje</p>
+          </div>
+          <div class="detail-quick-spec">
+            <svg class="detail-quick-spec__icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <p class="detail-quick-spec__value" id="qsFuel"></p>
+            <p class="detail-quick-spec__label">Combustible</p>
+          </div>
+          <div class="detail-quick-spec">
+            <svg class="detail-quick-spec__icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            <p class="detail-quick-spec__value" id="qsTrans"></p>
+            <p class="detail-quick-spec__label">Transmisión</p>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="detail-description">
+          <p id="detailDesc"></p>
+        </div>
+
+        <!-- Specs Table -->
+        <div class="detail-specs">
+          <h3 class="detail-specs__title">Especificaciones</h3>
+          <table><tbody id="specsTable"></tbody></table>
+        </div>
+
+        <!-- Features List -->
+        <div class="detail-features">
+          <h3 class="detail-specs__title">Características</h3>
+          <ul id="featuresList"></ul>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="detail-ctas">
+          <a id="whatsappCTA" href="#" target="_blank" rel="noopener" class="btn btn--whatsapp">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            Consultar por WhatsApp
+          </a>
+          <button id="quoteBtn" class="btn btn--outline" type="button">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Solicitar cotización
+          </button>
+          <a id="callCTA" href="tel:+18293189380" class="btn btn--outline">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Llamar Ahora
+          </a>
+        </div>
+
+        <!-- Quick Action Strip -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+          <a href="cita.html" class="btn-cinema btn-cinema--ghost" style="padding:10px 18px;font-size:0.74rem">Agendar test drive</a>
+          <a href="comparar.html" class="btn-cinema btn-cinema--ghost" style="padding:10px 18px;font-size:0.74rem">Comparar</a>
+          <a href="valoracion.html" class="btn-cinema btn-cinema--ghost" style="padding:10px 18px;font-size:0.74rem">Valorar mi vehículo</a>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="detail-viewers">
+          <span class="detail-viewers__dot"></span>
+          <span id="viewerCount"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FINANCE CALCULATOR
+  ═══════════════════════════════════════════ -->
+  <section style="padding: 80px 56px; background: var(--color-bg-light, #f5f5f0)">
+    <div style="max-width: 1340px; margin: 0 auto">
+      <div style="margin-bottom: 32px; max-width: 720px">
+        <span class="page-header__eyebrow">— Financiamiento</span>
+        <h2 class="page-header__title" style="font-size: clamp(2rem, 4vw, 3rem); margin-top:6px">Calcula tu <em>cuota mensual</em>.</h2>
+        <p class="page-header__lede" style="margin-top: 16px">Estimado orientativo basado en términos estándar del mercado dominicano. La oferta formal depende de evaluación crediticia con bancos aliados.</p>
+      </div>
+
+      <div class="finance-calc" id="financeCalc">
+        <div class="finance-calc__grid">
+          <div class="finance-calc__inputs">
+            <div class="finance-calc__field">
+              <label>Precio del vehículo (RD$)</label>
+              <input type="number" data-fc-price min="0" step="10000">
+            </div>
+            <div class="finance-calc__field">
+              <label>Inicial (% del precio): <span data-fc-down>20</span>%</label>
+              <input type="range" data-fc-down-range min="10" max="80" value="20" step="5">
+            </div>
+            <div class="finance-calc__field">
+              <label>Plazo (meses)</label>
+              <input type="number" data-fc-term min="12" max="84" step="6" value="60">
+            </div>
+            <div class="finance-calc__field">
+              <label>Tasa anual (%)</label>
+              <input type="number" data-fc-rate min="1" max="30" step="0.5" value="13">
+            </div>
+          </div>
+
+          <div class="finance-calc__results">
+            <div class="finance-calc__result-row finance-calc__result-row--main">
+              <span class="finance-calc__result-label">Cuota mensual</span>
+              <span class="finance-calc__result-value" data-fc-monthly>—</span>
+            </div>
+            <div class="finance-calc__result-row">
+              <span class="finance-calc__result-label">Total a pagar</span>
+              <span class="finance-calc__result-value" data-fc-total>—</span>
+            </div>
+            <div class="finance-calc__result-row">
+              <span class="finance-calc__result-label">Intereses totales</span>
+              <span class="finance-calc__result-value" data-fc-interest>—</span>
+            </div>
+            <p class="finance-calc__disclaimer">* Estimado referencial. Tasa final depende de tu perfil crediticio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SIMILAR VEHICLES
+  ═══════════════════════════════════════════ -->
+  <section class="detail-similar" id="similarSection">
+    <div class="section-header">
+      <p class="section-label">También te puede interesar</p>
+      <h2 class="section-title">Vehículos <strong>Similares</strong></h2>
+    </div>
+    <div class="detail-similar__grid" id="similarGrid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand-name">MATOS <span>DEALER</span></p>
+        <p class="footer__brand-text">Tu dealer de confianza en Azua, República Dominicana. Vehículos de todas las marcas con garantía, financiamiento y traspaso incluido.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading">Navegación</h4>
+        <ul class="footer__links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="inventario.html">Inventario</a></li>
+          <li><a href="index.html#marcas">Marcas</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Marcas</h4>
+        <ul class="footer__links">
+          <li><a href="inventario.html?marca=Toyota">Toyota</a></li>
+          <li><a href="inventario.html?marca=Honda">Honda</a></li>
+          <li><a href="inventario.html?marca=Hyundai">Hyundai</a></li>
+          <li><a href="inventario.html?marca=Kia">Kia</a></li>
+          <li><a href="inventario.html?marca=Nissan">Nissan</a></li>
+          <li><a href="inventario.html?marca=Mitsubishi">Mitsubishi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Contacto</h4>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Azua de Compostela,<br>República Dominicana</span>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>829-680-6829<br>809-953-0495</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Isidro Motors. Todos los derechos reservados.</p>
+      <div class="footer__socials">
+        <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       FLOATING WHATSAPP BUTTON
+  ═══════════════════════════════════════════ -->
+  <a href="https://wa.me/18293189380?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.106 1.519 5.834L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.855 0-3.63-.5-5.182-1.446l-.37-.222-3.842 1.007 1.024-3.742-.243-.387A9.78 9.78 0 012.182 12c0-5.41 4.408-9.818 9.818-9.818S21.818 6.59 21.818 12s-4.408 9.818-9.818 9.818z"/></svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════ -->
+  <script src="js/vehiculos-data.js?v=4"></script>
+  <script src="js/features.js?v=1"></script>
+  <script src="js/shared.js?v=4"></script>
+  <script src="js/vehiculo.js?v=5"></script>
+  <script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Find current vehicle
+      var hashId = parseInt((window.location.hash || '').replace('#', ''));
+      var v = (typeof VEHICULOS !== 'undefined') ? VEHICULOS.find(function (x) { return x.id === hashId; }) : null;
+      if (!v) return;
+
+      // Wire wishlist heart on main image
+      var heart = document.getElementById('vehWishBtn');
+      if (heart) heart.dataset.wishId = v.id;
+
+      // Lightbox on main image / thumbs
+      var stage = document.getElementById('galleryMain');
+      if (stage) {
+        stage.addEventListener('click', function (e) {
+          if (e.target.closest('.wish-btn')) return;
+          var thumbs = document.querySelectorAll('.detail-thumb');
+          var current = 0;
+          thumbs.forEach(function (t, i) { if (t.classList.contains('active')) current = i; });
+          if (window.MatosLightbox) MatosLightbox.open(v.imagenes, current);
+        });
+      }
+
+      // Quote modal
+      var quoteBtn = document.getElementById('quoteBtn');
+      if (quoteBtn) {
+        quoteBtn.addEventListener('click', function () {
+          var price = v.precioConsultar ? '' : 'RD$ ' + v.precio.toLocaleString('es-DO');
+          MatosModal.open(
+            '<h2>Solicitar <em>cotización</em></h2>' +
+            '<p>Para tu interés en el <strong>' + v.marca + ' ' + v.modelo + ' ' + v.ano + '</strong>' + (price ? ' (' + price + ')' : '') + '. Recibirás la oferta formal por email y WhatsApp en menos de 4 horas hábiles.</p>' +
+            '<form id="quoteForm" onsubmit="event.preventDefault();return false;">' +
+              '<div class="form-row">' +
+                '<div><label>Nombre</label><input name="nombre" required></div>' +
+                '<div><label>Teléfono</label><input name="tel" type="tel" required></div>' +
+              '</div>' +
+              '<div class="form-field"><label>Email</label><input name="email" type="email" required></div>' +
+              '<div class="form-field"><label>Forma de pago preferida</label>' +
+                '<select name="pago"><option>Contado</option><option>Financiamiento</option><option>Trade-in (entrego mi vehículo)</option><option>A definir</option></select></div>' +
+              '<div class="form-field"><label>Notas</label><textarea name="notas" placeholder="Cualquier preferencia o pregunta"></textarea></div>' +
+              '<button type="submit" class="btn-cinema btn-cinema--solid" style="width:100%;justify-content:center">Enviar solicitud</button>' +
+            '</form>'
+          );
+          var f = document.getElementById('quoteForm');
+          f.addEventListener('submit', function () {
+            f.parentElement.innerHTML =
+              '<div class="modal__success">' +
+                '<div class="check">✓</div>' +
+                '<h2>Solicitud <em>recibida</em></h2>' +
+                '<p>Te contactaremos por WhatsApp en menos de 4 horas hábiles con la cotización formal.</p>' +
+                '<a href="https://wa.me/18293189380?text=Hola%2C%20acabo%20de%20enviar%20una%20solicitud%20de%20cotizaci%C3%B3n%20a%20trav%C3%A9s%20de%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29.%20Quedo%20atento%20a%20su%20respuesta." target="_blank" rel="noopener" class="btn-cinema btn-cinema--solid" style="margin-top:8px">Continuar conversación</a>' +
+              '</div>';
+          });
+        });
+      }
+
+      // Finance calc binding
+      var fc = document.getElementById('financeCalc');
+      if (fc && window.MatosFinance) {
+        var price = v.precioConsultar ? 2500000 : v.precio;
+        MatosFinance.bindFinanceCalc(fc, price);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

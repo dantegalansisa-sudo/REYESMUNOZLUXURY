@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valoración Trade-In — Matos Dealer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css?v=6">
+  <link rel="stylesheet" href="css/index.css?v=6">
+  <link rel="stylesheet" href="css/pages.css?v=1">
+</head>
+<body>
+  <div data-shell="navbar"></div>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <span class="page-header__eyebrow">— Trade-in</span>
+      <h1 class="page-header__title">Valoramos <em>tu vehículo</em>.</h1>
+      <p class="page-header__lede">Recibe un estimado preliminar para tu vehículo actual. Nos contactamos en 24 horas con la oferta formal y opciones para aplicarlo a tu próxima compra.</p>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="page-section__inner" style="max-width:760px">
+      <form class="booking-form" id="tradeForm" onsubmit="event.preventDefault();" style="display:grid;gap:14px;grid-template-columns:1fr 1fr">
+        <div style="grid-column:1 / -1">
+          <h3 class="booking-form__title" style="margin-bottom:6px">Datos del vehículo</h3>
+          <p style="font-family:'Source Sans 3',sans-serif;color:var(--ink-500);margin:0 0 14px">Cuanta más información incluyas, más preciso el estimado.</p>
+        </div>
+
+        <input name="marca" placeholder="Marca" required>
+        <input name="modelo" placeholder="Modelo" required>
+        <input name="ano" type="number" placeholder="Año" required min="1990" max="2026">
+        <input name="km" type="number" placeholder="Kilometraje" required>
+        <select name="condicion">
+          <option value="">Condición general</option>
+          <option>Excelente</option>
+          <option>Buena</option>
+          <option>Regular</option>
+          <option>Necesita reparaciones</option>
+        </select>
+        <select name="transmision">
+          <option value="">Transmisión</option>
+          <option>Automática</option>
+          <option>Manual</option>
+        </select>
+        <input name="color" placeholder="Color" style="grid-column:1 / -1">
+        <textarea name="notas" placeholder="¿Algo que debamos saber? (modificaciones, historial, etc.)" style="grid-column:1 / -1;min-height:100px"></textarea>
+
+        <div style="grid-column:1 / -1; height:1px; background:rgba(120,90,40,0.12); margin:14px 0"></div>
+
+        <input name="nombre" placeholder="Tu nombre" required>
+        <input name="telefono" type="tel" placeholder="Teléfono" required>
+        <input name="email" type="email" placeholder="Email" style="grid-column:1 / -1">
+
+        <button type="submit" style="grid-column:1 / -1">Solicitar valoración</button>
+      </form>
+    </div>
+  </section>
+
+  <div data-shell="footer"></div>
+
+  <script src="js/features.js?v=1"></script>
+  <script src="js/page-shell.js?v=1"></script>
+  <script>
+  document.getElementById('tradeForm').addEventListener('submit', (e) => {
+    const fd = new FormData(e.target);
+    // Basic estimate (demo): formula based on year + km + condition
+    const ano = parseInt(fd.get('ano')) || 2020;
+    const km = parseInt(fd.get('km')) || 0;
+    const condicion = fd.get('condicion');
+    const ageFactor = Math.max(0.25, 1 - (2026 - ano) * 0.08);
+    const kmFactor = Math.max(0.5, 1 - (km / 200000) * 0.5);
+    const condFactor = { 'Excelente': 1, 'Buena': 0.92, 'Regular': 0.78, 'Necesita reparaciones': 0.55 }[condicion] || 0.85;
+    const base = 2500000;
+    const est = Math.round(base * ageFactor * kmFactor * condFactor / 1000) * 1000;
+    const min = Math.round(est * 0.92 / 1000) * 1000;
+    const max = Math.round(est * 1.08 / 1000) * 1000;
+    MatosModal.open(`
+      <div class="modal__success">
+        <div class="check">✓</div>
+        <h2>Estimado <em>preliminar</em></h2>
+        <p>Para tu ${fd.get('marca')} ${fd.get('modelo')} ${fd.get('ano')}:</p>
+        <p style="font-family:'Fraunces',serif;font-size:2rem;color:var(--bronze-600);margin:8px 0">RD$ ${min.toLocaleString('es-DO')} — ${max.toLocaleString('es-DO')}</p>
+        <p style="font-size:0.85rem;color:var(--ink-300);font-style:italic">Estimado orientativo. Un asesor confirmará la oferta formal tras inspección presencial dentro de 24 horas.</p>
+        <a href="https://wa.me/18293189380?text=Hola%2C%20acabo%20de%20solicitar%20una%20valoraci%C3%B3n%20trade-in%20a%20trav%C3%A9s%20de%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29.%20Me%20gustar%C3%ADa%20avanzar%20con%20el%20proceso." target="_blank" rel="noopener" class="btn-cinema btn-cinema--solid" style="margin-top:12px">Continuar por WhatsApp</a>
+      </div>`);
+  });
+  </script>
+</body>
+</html>

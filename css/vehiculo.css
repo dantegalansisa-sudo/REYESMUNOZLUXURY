@@ -1,0 +1,414 @@
+/* ═══════════════════════════════════════════
+   VEHICLE DETAIL PAGE — Isidro Motors
+   Gallery, specs, CTA, similar vehicles
+═══════════════════════════════════════════ */
+
+/* ─── Breadcrumb ─── */
+.detail-breadcrumb {
+  background: var(--color-primary);
+  padding: 88px 48px 20px;
+}
+
+.detail-breadcrumb__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.detail-breadcrumb a {
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s ease;
+}
+
+.detail-breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+.detail-breadcrumb__sep {
+  color: rgba(255,255,255,0.2);
+}
+
+.detail-breadcrumb__current {
+  color: rgba(255,255,255,0.8);
+}
+
+/* ─── Main Detail Layout ─── */
+.detail-main {
+  background: var(--color-primary);
+  padding: 20px 48px 80px;
+}
+
+.detail-main__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ─── Image Gallery ─── */
+.detail-gallery {
+  position: sticky;
+  top: 92px;
+}
+
+.detail-gallery__main {
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-secondary);
+  margin-bottom: 12px;
+}
+
+.detail-gallery__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.detail-gallery__thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+  padding-bottom: 4px;
+}
+
+.detail-thumb {
+  flex: 0 0 80px;
+  height: 56px;
+  border-radius: 4px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.5;
+  border: 2px solid transparent;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.detail-thumb:hover {
+  opacity: 0.8;
+}
+
+.detail-thumb.active {
+  opacity: 1;
+  border-color: var(--color-accent);
+}
+
+/* ─── Vehicle Info Panel ─── */
+.detail-info {
+  color: #fff;
+}
+
+.detail-info__badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.detail-badge {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.detail-badge--new { background: #25D366; color: #fff; }
+.detail-badge--used { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+.detail-badge--offer { background: var(--color-accent); color: #fff; }
+
+.detail-info__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+
+.detail-info__subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.detail-info__price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--color-accent);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.detail-info__price-old {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.detail-info__finance {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+/* ─── Quick Specs Row ─── */
+.detail-quick-specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.detail-quick-spec {
+  background: rgba(255,255,255,0.03);
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.detail-quick-spec__icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto 8px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.detail-quick-spec__value {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.detail-quick-spec__label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ─── Description ─── */
+.detail-description {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.detail-description p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ─── Specs Table ─── */
+.detail-specs {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.detail-specs__title {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+
+.detail-specs table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.detail-specs td {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.spec-label {
+  color: rgba(255,255,255,0.45);
+  font-weight: 300;
+  width: 40%;
+}
+
+.spec-value {
+  color: #fff;
+  font-weight: 500;
+  font-family: var(--font-heading);
+}
+
+/* ─── Features List ─── */
+.detail-features {
+  margin-bottom: 32px;
+}
+
+.detail-features ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.detail-features li {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  padding-left: 20px;
+  position: relative;
+}
+
+.detail-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* ─── CTA Buttons ─── */
+.detail-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-ctas .btn {
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+}
+
+/* ─── Social Proof ─── */
+.detail-viewers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+}
+
+.detail-viewers__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ─── Similar Vehicles ─── */
+.detail-similar {
+  background: var(--color-bg-light);
+  padding: 80px 48px;
+}
+
+.detail-similar__grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .detail-main__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .detail-gallery {
+    position: static;
+  }
+
+  .detail-main {
+    padding: 20px 24px 60px;
+  }
+
+  .detail-breadcrumb {
+    padding: 88px 24px 16px;
+  }
+
+  .detail-similar__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-similar {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-quick-specs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-features ul {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-similar__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .detail-main {
+    padding: 16px 16px 48px;
+  }
+
+  .detail-breadcrumb {
+    padding: 88px 16px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-similar__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .detail-gallery__thumbs {
+    gap: 6px;
+  }
+
+  .detail-thumb {
+    flex: 0 0 64px;
+    height: 44px;
+  }
+}

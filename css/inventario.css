@@ -1,0 +1,506 @@
+/* ═══════════════════════════════════════════
+   INVENTARIO PAGE — Isidro Motors
+   Filters, search, grid, pagination
+═══════════════════════════════════════════ */
+
+/* ─── Mini Hero ─── */
+.inv-hero {
+  background: var(--color-primary);
+  padding: 130px 48px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.inv-hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 50%;
+  height: 180%;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inv-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 200;
+  color: #fff;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.inv-hero__title strong {
+  font-weight: 600;
+}
+
+/* ─── Sticky Search Bar ─── */
+.inv-search {
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+  background: #fff;
+  padding: 16px 48px;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+}
+
+.inv-search__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 16px;
+  transition: border-color var(--transition);
+}
+
+.inv-search__inner:focus-within {
+  border-color: var(--color-accent);
+}
+
+.inv-search__icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-text-muted);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.inv-search__inner input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 12px 0;
+  color: var(--color-text-dark);
+}
+
+.inv-search__inner input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.inv-search__clear {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color var(--transition);
+}
+
+.inv-search__clear:hover {
+  color: var(--color-text-dark);
+}
+
+/* ─── Main Layout ─── */
+.inv-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 48px 80px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ─── Filter Sidebar ─── */
+.inv-filters {
+  position: sticky;
+  top: 160px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.inv-filters::-webkit-scrollbar {
+  width: 4px;
+}
+
+.inv-filters::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.inv-filters__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.inv-filters__title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.inv-filters__reset {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.inv-filters__reset:hover {
+  color: var(--color-accent-hover);
+}
+
+.inv-filters__close {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.inv-filter-group {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.inv-filter-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.inv-filter-group__title {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+  margin-bottom: 12px;
+}
+
+.inv-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.inv-checkbox:hover {
+  color: var(--color-accent);
+}
+
+.inv-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.inv-checkbox__count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.inv-range-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inv-range-row span {
+  color: var(--color-text-muted);
+}
+
+.inv-range-row select {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  outline: none;
+}
+
+.inv-range-row select:focus {
+  border-color: var(--color-accent);
+}
+
+/* ─── Toolbar ─── */
+.inv-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.inv-toolbar__count {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.inv-toolbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inv-toolbar__filter-btn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.inv-toolbar__filter-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.inv-toolbar__filter-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.inv-sort {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.inv-sort:focus {
+  border-color: var(--color-accent);
+}
+
+/* ─── Active Filter Chips ─── */
+.inv-active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.inv-active-filters:empty {
+  display: none;
+}
+
+.inv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.inv-chip:hover {
+  border-color: #c44;
+  background: rgba(204,68,68,0.06);
+  color: #c44;
+}
+
+.inv-chip__x {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ─── Vehicle Grid ─── */
+.inv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ─── Pagination ─── */
+.inv-pagination {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ─── Empty State ─── */
+.inv-empty {
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.inv-empty svg {
+  margin-bottom: 24px;
+  opacity: 0.4;
+}
+
+.inv-empty h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+
+.inv-empty p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+/* ─── Mobile Filter Overlay ─── */
+.inv-filters-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 9996;
+}
+
+.inv-filters-overlay.active {
+  display: block;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .inv-main {
+    grid-template-columns: 1fr;
+    padding: 24px 24px 60px;
+  }
+
+  .inv-filters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    max-height: 100vh;
+    z-index: 9997;
+    border-radius: 0;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+  }
+
+  .inv-filters.open {
+    transform: translateX(0);
+  }
+
+  .inv-filters__close {
+    display: block;
+  }
+
+  .inv-toolbar__filter-btn {
+    display: flex;
+  }
+
+  .inv-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .inv-search {
+    padding: 12px 24px;
+  }
+
+  .inv-hero {
+    padding: 120px 24px 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inv-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .inv-main {
+    padding: 16px 16px 60px;
+  }
+
+  .inv-search {
+    padding: 12px 16px;
+  }
+
+  .inv-hero {
+    padding: 110px 16px 40px;
+  }
+
+  .inv-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inv-toolbar__actions {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .inv-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .inv-filters {
+    width: 100%;
+  }
+}

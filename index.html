@@ -1,0 +1,590 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reyes Muñoz Luxury Cars — Concesionario Premium · República Dominicana</title>
+  <meta name="description" content="Reyes Muñoz Luxury Cars · Concesionario premium en Santo Domingo. Inventario multimarca, servicio impecable, experiencia exclusiva.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@300;400;500&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/shared.css?v=6">
+  <link rel="stylesheet" href="css/index.css?v=6">
+  <link rel="stylesheet" href="css/pages.css?v=1">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar navbar--floating" id="navbar">
+    <a href="index.html" class="navbar__logo"><img src="logo.png" alt="Reyes Muñoz Luxury Cars" style="height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1);"></a>
+    <button class="navbar__burger" id="burger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inventario">Inventario</a>
+    <a href="#manifesto">Filosofía</a>
+    <a href="#experience">Experiencia</a>
+    <a href="#showroom">Showroom</a>
+    <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="btn-cinema btn-cinema--solid btn-cinema--invert" style="margin-top:24px">Contactar por WhatsApp</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO — EDITORIAL LIGHT v2
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- Social icons — columna vertical izquierda -->
+    <div class="hero__socials">
+      <a href="https://www.instagram.com/reyesmunozluxurycars/" target="_blank" rel="noopener" class="hero__social" aria-label="Instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <defs>
+            <linearGradient id="ig-grad" x1="0" y1="24" x2="24" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f09433"/>
+              <stop offset="25%" stop-color="#e6683c"/>
+              <stop offset="50%" stop-color="#dc2743"/>
+              <stop offset="75%" stop-color="#cc2366"/>
+              <stop offset="100%" stop-color="#bc1888"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad)" stroke-width="2"/>
+          <circle cx="12" cy="12" r="5" stroke="url(#ig-grad)" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="url(#ig-grad)"/>
+        </svg>
+      </a>
+      <a href="#" class="hero__social" aria-label="Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      <a href="#" class="hero__social" aria-label="WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero__inner">
+
+      <!-- LEFT: contenido -->
+      <div class="hero__text">
+
+        <!-- Badge de ubicación -->
+        <span class="hero__badge">
+          <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true">
+            <path d="M4.5 0C2.57 0 1 1.57 1 3.5c0 2.63 3.5 8.5 3.5 8.5S8 6.13 8 3.5C8 1.57 6.43 0 4.5 0zm0 4.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z" fill="currentColor"/>
+          </svg>
+          REYES MUÑOZ LUXURY CARS · REPÚBLICA DOMINICANA
+        </span>
+
+        <!-- Headline -->
+        <h1 class="hero__title">Muévete <em>diferente.</em></h1>
+
+        <!-- Subfrase -->
+        <p class="hero__sub">Vehículos para quienes exigen más.</p>
+
+        <!-- Search bar -->
+        <div class="hero__search">
+          <select class="hero__select" aria-label="Marca">
+            <option value="" disabled selected>Marca</option>
+            <option>Toyota</option>
+            <option>Honda</option>
+            <option>Hyundai</option>
+            <option>BMW</option>
+            <option>Mercedes</option>
+            <option>Kia</option>
+            <option>Nissan</option>
+            <option>Mazda</option>
+          </select>
+          <select class="hero__select" aria-label="Modelo">
+            <option value="" disabled selected>Modelo</option>
+            <option>Corolla</option>
+            <option>Civic</option>
+            <option>Tucson</option>
+            <option>CR-V</option>
+            <option>RAV4</option>
+            <option>Hilux</option>
+            <option>Ranger</option>
+            <option>Accent</option>
+            <option>Elantra</option>
+            <option>Sentra</option>
+            <option>Versa</option>
+            <option>Kicks</option>
+            <option>Juke</option>
+            <option>320i</option>
+            <option>330i</option>
+            <option>C200</option>
+            <option>GLC</option>
+            <option>X5</option>
+            <option>Fortuner</option>
+            <option>Prado</option>
+          </select>
+          <select class="hero__select hero__select--last" aria-label="Año">
+            <option value="" disabled selected>Año</option>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+          </select>
+          <button class="hero__search-btn" aria-label="Buscar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4F2EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Categorías -->
+        <div class="hero__cats">
+          <span class="hero__cats-dash">—</span>
+          <a href="#" class="hero__cat">Sedan</a>
+          <span class="hero__cats-sep">·</span>
+          <a href="#" class="hero__cat">SUV</a>
+          <span class="hero__cats-sep">·</span>
+          <a href="#" class="hero__cat">Deportivos</a>
+          <span class="hero__cats-sep">·</span>
+          <a href="#" class="hero__cat">Camionetas</a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: slider de carros -->
+      <div class="hero__visual">
+        <div class="hero__slider-wrap">
+          <div class="hero__circle"></div>
+          <div class="hero__cars">
+            <img src="imagenes/car1.png" class="hero__car hero__car--active" alt="Vehículo premium 1" loading="eager">
+            <img src="imagenes/car2.png" class="hero__car" alt="Vehículo premium 2" loading="lazy">
+            <img src="imagenes/car3.png" class="hero__car" alt="Vehículo premium 3" loading="lazy">
+          </div>
+          <div class="hero__dots">
+            <button class="hero__dot hero__dot--active" aria-label="Vehículo 1"></button>
+            <button class="hero__dot" aria-label="Vehículo 2"></button>
+            <button class="hero__dot" aria-label="Vehículo 3"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="hero__disclaimer">
+      SITIO DE DEMOSTRACIÓN · DATOS Y VEHÍCULOS FICTICIOS · NO ES WEB OFICIAL
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BRANDS MARQUEE — luxury + real brands
+  ═══════════════════════════════════════════ -->
+  <section class="brands-marquee" id="brands">
+    <div class="brands-marquee__track">
+      <span class="brands-marquee__item">Porsche</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Mercedes-Benz</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">BMW</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Audi</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Lexus</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Land Rover</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Toyota</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Honda</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Volvo</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Porsche</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Mercedes-Benz</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">BMW</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Audi</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Lexus</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Land Rover</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Toyota</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Honda</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Volvo</span><span class="brands-marquee__sep">✦</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       INVENTARIO — search, filters, grid
+  ═══════════════════════════════════════════ -->
+  <section class="inventory" id="inventario">
+    <div class="inventory__header">
+      <span class="section-eyebrow">— Inventario</span>
+      <h2 class="section-display">
+        Encuentra <em>tu próximo</em><br>
+        vehículo.
+      </h2>
+      <p class="section-lede">Explora nuestra selección activa de vehículos disponibles. Filtra por marca, busca por modelo, y descubre el que conecte con tu estilo.</p>
+    </div>
+
+    <form class="inventory__search" id="inventorySearch" onsubmit="event.preventDefault();">
+      <span class="inventory__search-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+      </span>
+      <input id="invQuery" type="text" placeholder="Busca por marca, modelo, año…" autocomplete="off">
+      <button type="submit" class="inventory__search-btn">Buscar</button>
+    </form>
+
+    <div class="inventory__filters" id="inventoryFilters">
+      <button class="inv-chip is-active" data-filter="all">Todos</button>
+      <button class="inv-chip" data-filter="Porsche">Porsche</button>
+      <button class="inv-chip" data-filter="Mercedes">Mercedes-Benz</button>
+      <button class="inv-chip" data-filter="BMW">BMW</button>
+      <button class="inv-chip" data-filter="Audi">Audi</button>
+      <button class="inv-chip" data-filter="Toyota">Toyota</button>
+      <button class="inv-chip" data-filter="Honda">Honda</button>
+      <button class="inv-chip" data-filter="Land Rover">Land Rover</button>
+    </div>
+
+    <div class="inventory__grid" id="inventoryGrid"><!-- JS-rendered --></div>
+
+    <div class="inventory__more">
+      <a href="inventario.html" class="btn-cinema btn-cinema--ghost">
+        Ver inventario completo
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       MANIFESTO — split sticky
+  ═══════════════════════════════════════════ -->
+  <section class="manifesto" id="manifesto">
+    <div class="manifesto__inner">
+      <div class="manifesto__sticky">
+        <span class="section-eyebrow section-eyebrow--light">— Filosofía</span>
+        <h2 class="section-display section-display--light">
+          Un vehículo <em>excepcional</em><br>
+          merece una experiencia<br>
+          a su altura.
+        </h2>
+      </div>
+
+      <div class="manifesto__col">
+        <div class="manifesto__block">
+          <span class="manifesto__num">I.</span>
+          <h3>Selección</h3>
+          <p>Cada vehículo en nuestra colección pasa por una curaduría rigurosa. Procedencia, historial, condición mecánica, estética. Nada se aprueba por aproximación.</p>
+        </div>
+
+        <div class="manifesto__block">
+          <span class="manifesto__num">II.</span>
+          <h3>Atención</h3>
+          <p>Un asesor dedicado. Un proceso transparente. La compra de un vehículo no debería sentirse como una transacción — debería sentirse como una conversación entre quienes valoran lo mismo.</p>
+        </div>
+
+        <div class="manifesto__block">
+          <span class="manifesto__num">III.</span>
+          <h3>Servicio</h3>
+          <p>Entregamos el vehículo. Pero permanecemos. Mantenimiento programado, asistencia técnica, repuestos originales. Una relación que comienza en la entrega y se sostiene en el tiempo.</p>
+        </div>
+
+        <div class="manifesto__block">
+          <span class="manifesto__num">IV.</span>
+          <h3>Discreción</h3>
+          <p>Tu inversión, tu privacidad. Procesos confidenciales, atención sin protocolos invasivos, espacios privados de exhibición y entrega cuando así lo requieras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EXPERIENCE — bento grid
+  ═══════════════════════════════════════════ -->
+  <section class="experience" id="experience">
+    <div class="exp__header">
+      <span class="section-eyebrow">— Experiencia</span>
+      <h2 class="section-display">
+        Más allá de la <em>compra</em>.
+      </h2>
+    </div>
+
+    <div class="exp__bento">
+      <article class="exp__card exp__card--lg" data-tilt>
+        <div class="exp__icon">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="16" cy="16" r="13"/>
+            <path d="M16 8v8l5 3"/>
+          </svg>
+        </div>
+        <h3>Test Drive Privado</h3>
+        <p>Reserva una sesión exclusiva con el vehículo de tu interés. Ruta personalizada, sin presión, con un asesor especializado.</p>
+        <span class="exp__tag">Experiencia · 90 min</span>
+      </article>
+
+      <article class="exp__card" data-tilt>
+        <div class="exp__icon">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M4 12l12-7 12 7v8l-12 7-12-7z"/>
+            <path d="M4 12l12 7 12-7"/>
+          </svg>
+        </div>
+        <h3>Financiamiento</h3>
+        <p>Estructuras a medida con bancos aliados. Aprobación discreta y ágil.</p>
+      </article>
+
+      <article class="exp__card" data-tilt>
+        <div class="exp__icon">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M6 8h20v18H6z"/>
+            <path d="M6 14h20"/>
+            <path d="M11 4v8M21 4v8"/>
+          </svg>
+        </div>
+        <h3>Traspaso Incluido</h3>
+        <p>Toda la gestión legal y documental se entrega con el vehículo.</p>
+      </article>
+
+      <article class="exp__card exp__card--dark" data-tilt>
+        <div class="exp__icon">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M4 22c0-6 5-11 12-11s12 5 12 11"/>
+            <path d="M11 16c0-3 2-6 5-6s5 3 5 6"/>
+            <circle cx="16" cy="6" r="3"/>
+          </svg>
+        </div>
+        <h3>Servicio Postventa</h3>
+        <p>Mantenimiento programado en taller especializado. Asistencia técnica permanente, repuestos originales bajo orden directa.</p>
+        <span class="exp__tag exp__tag--light">Garantía extendida disponible</span>
+      </article>
+
+      <article class="exp__card exp__card--accent" data-tilt>
+        <div class="exp__icon">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M16 4l4 8 9 1-7 7 2 9-8-5-8 5 2-9-7-7 9-1z"/>
+          </svg>
+        </div>
+        <h3>Programa Heritage</h3>
+        <p>Acceso prioritario a ediciones limitadas y vehículos certificados de colección.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SHOWROOM
+  ═══════════════════════════════════════════ -->
+  <section class="showroom" id="showroom">
+    <div class="showroom__inner">
+      <div class="showroom__text">
+        <span class="section-eyebrow section-eyebrow--light">— Showroom</span>
+        <h2 class="section-display section-display--light">
+          Santo Domingo,<br>
+          <em>República Dominicana</em>.
+        </h2>
+        <p class="section-lede section-lede--light">Visítanos con cita. Espacios privados, atención discreta, proceso de exhibición personalizado.</p>
+
+        <div class="showroom__info">
+          <div class="showroom__info-row">
+            <span class="showroom__info-label">Dirección</span>
+            <span class="showroom__info-value">Av. Winston Churchill, Piantini<br>Santo Domingo, D.N.</span>
+          </div>
+          <div class="showroom__info-row">
+            <span class="showroom__info-label">Horario</span>
+            <span class="showroom__info-value">Lunes a Sábado · 9:00 — 19:00<br>Domingo · solo con cita</span>
+          </div>
+          <div class="showroom__info-row">
+            <span class="showroom__info-label">WhatsApp</span>
+            <span class="showroom__info-value">+1 (829) 318-9380</span>
+          </div>
+        </div>
+
+        <div class="showroom__cta">
+          <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20agendar%20una%20visita%20al%20showroom." class="btn-cinema btn-cinema--solid btn-cinema--invert" target="_blank" rel="noopener">
+            Agendar visita privada
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="showroom__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.7!2d-69.945!3d18.474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.%20Winston%20Churchill%2C%20Santo%20Domingo!5e0!3m2!1ses!2sdo!4v1"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Showroom Matos Dealer · Santo Domingo">
+        </iframe>
+        <div class="showroom__map-tag">
+          <span class="showroom__map-dot"></span>
+          Showroom Piantini
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONCIERGE — direct contact strip
+  ═══════════════════════════════════════════ -->
+  <section class="concierge" id="concierge">
+    <div class="concierge__inner">
+      <div class="concierge__head">
+        <span class="section-eyebrow section-eyebrow--light">— Concierge</span>
+        <h2 class="section-display section-display--light">
+          Atención <em>directa</em>.<br>
+          Sin intermediarios.
+        </h2>
+        <p class="section-lede section-lede--light">Habla con un asesor especializado. Disponible para visitas privadas, valoración de tu vehículo actual, o conversaciones confidenciales sobre nuestra colección.</p>
+      </div>
+
+      <div class="concierge__grid">
+        <a href="tel:+18293189380" class="concierge__card">
+          <span class="concierge__icon">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22.5 6c1.5.5 2.5 1.5 3 3M22.5 2c3 1 5 3 6 6M21 19l-2 1c-3-2-5-4-7-7l1-2c.5-.5.5-1 0-1.5l-3-4C9.5 4.8 8.5 5 8 5.5L6 7c-1 1-1 3-1 5 0 4 3 9 7 13s9 7 13 7c2 0 4 0 5-1l1.5-2c.5-.5.5-1.5 0-2l-4-3c-.5-.5-1-.5-1.5 0z"/></svg>
+          </span>
+          <div>
+            <span class="concierge__label">Llámanos</span>
+            <span class="concierge__value">+1 (829) 318-9380</span>
+            <span class="concierge__hint">Lun—Sáb · 9:00 — 19:00</span>
+          </div>
+        </a>
+
+        <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="concierge__card concierge__card--accent">
+          <span class="concierge__icon">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor"><path d="M16 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.351.617 4.654 1.79 6.683L2.667 29.333l6.86-1.79A13.323 13.323 0 0 0 16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667zm6.07 16.107c-.333-.166-1.967-.97-2.272-1.082-.305-.111-.527-.166-.749.167s-.86 1.082-1.054 1.304c-.194.222-.388.25-.722.083-.333-.167-1.405-.519-2.677-1.654-.99-.882-1.659-1.97-1.853-2.303-.194-.333-.021-.514.146-.68.149-.149.333-.388.499-.583.166-.194.222-.333.333-.555.111-.222.056-.416-.028-.583-.084-.166-.749-1.804-1.027-2.471-.27-.65-.546-.563-.749-.573-.194-.01-.416-.012-.638-.012s-.583.083-.888.416c-.305.333-1.165 1.137-1.165 2.775s1.193 3.222 1.359 3.444c.166.222 2.348 3.585 5.687 5.026.795.343 1.415.547 1.898.7.798.254 1.524.218 2.098.132.64-.096 1.967-.804 2.244-1.582.277-.778.277-1.444.194-1.582-.083-.139-.305-.222-.638-.388z"/></svg>
+          </span>
+          <div>
+            <span class="concierge__label">WhatsApp</span>
+            <span class="concierge__value">Mensaje directo</span>
+            <span class="concierge__hint">Respuesta en minutos</span>
+          </div>
+        </a>
+
+        <a href="mailto:contacto@matosdealer.do" class="concierge__card">
+          <span class="concierge__icon">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="26" height="20" rx="2"/><path d="M3 9l13 9 13-9"/></svg>
+          </span>
+          <div>
+            <span class="concierge__label">Escríbenos</span>
+            <span class="concierge__value">contacto@matosdealer.do</span>
+            <span class="concierge__hint">Atención confidencial</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="concierge__footnote">
+        <span class="concierge__pulse"></span>
+        Asesor disponible · sin compromiso
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer-cinema">
+    <div class="footer-cinema__top">
+      <h3 class="footer-cinema__bigword">
+        Matos<br><em>Dealer</em>.
+      </h3>
+      <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." class="footer-cinema__cta" target="_blank" rel="noopener">
+        <span>Iniciar conversación</span>
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 16h20M20 8l8 8-8 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-cinema__grid">
+      <div>
+        <span class="footer-cinema__label">Navegación</span>
+        <ul>
+          <li><a href="#inventario">Inventario</a></li>
+          <li><a href="#manifesto">Filosofía</a></li>
+          <li><a href="#experience">Experiencia</a></li>
+          <li><a href="#showroom">Showroom</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-cinema__label">Contacto</span>
+        <ul>
+          <li><a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener">+1 (829) 318-9380</a></li>
+          <li><a href="mailto:contacto@matosdealer.do">contacto@matosdealer.do</a></li>
+          <li>Santo Domingo · D.N.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-cinema__label">Síguenos</span>
+        <ul>
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="#" aria-label="YouTube">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-cinema__bottom">
+      <p>&copy; 2026 Matos Dealer · Demo de referencia. Sitio no oficial.</p>
+      <p>Diseño cinematográfico · República Dominicana</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M16.001 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.351.617 4.654 1.79 6.683L2.667 29.333l6.86-1.79A13.323 13.323 0 0 0 16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667zm0 24.4a11.04 11.04 0 0 1-5.626-1.539l-.404-.24-4.075 1.069 1.087-3.974-.263-.418A11.07 11.07 0 0 1 4.933 16C4.933 9.892 9.893 4.933 16 4.933s11.067 4.96 11.067 11.067-4.96 11.067-11.067 11.067zm6.07-8.293c-.333-.166-1.967-.97-2.272-1.082-.305-.111-.527-.166-.749.167s-.86 1.082-1.054 1.304c-.194.222-.388.25-.722.083-.333-.167-1.405-.519-2.677-1.654-.99-.882-1.659-1.97-1.853-2.303-.194-.333-.021-.514.146-.68.149-.149.333-.388.499-.583.166-.194.222-.333.333-.555.111-.222.056-.416-.028-.583-.084-.166-.749-1.804-1.027-2.471-.27-.65-.546-.563-.749-.573-.194-.01-.416-.012-.638-.012s-.583.083-.888.416c-.305.333-1.165 1.137-1.165 2.775s1.193 3.222 1.359 3.444c.166.222 2.348 3.585 5.687 5.026.795.343 1.415.547 1.898.7.798.254 1.524.218 2.098.132.64-.096 1.967-.804 2.244-1.582.277-.778.277-1.444.194-1.582-.083-.139-.305-.222-.638-.388z"/></svg>
+  </a>
+
+  <!-- Vehicle data + scripts -->
+  <script src="js/vehiculos-data.js?v=4"></script>
+  <script src="js/features.js?v=1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/cinematic.js?v=3"></script>
+  <script>
+  (function() {
+    var cars = document.querySelectorAll('.hero__car');
+    var dots = document.querySelectorAll('.hero__dot');
+    if (!cars.length) return;
+    var current = 0;
+    var timer;
+    var transitioning = false;
+
+    function goTo(n) {
+      var nextIdx = (n + cars.length) % cars.length;
+      if (nextIdx === current || transitioning) return;
+      transitioning = true;
+
+      var outgoing = cars[current];
+      var incoming = cars[nextIdx];
+
+      dots[current].classList.remove('hero__dot--active');
+      dots[nextIdx].classList.add('hero__dot--active');
+      current = nextIdx;
+
+      // Outgoing: slide right + fade out (starts immediately)
+      outgoing.classList.remove('hero__car--active');
+      outgoing.classList.add('hero__car--exit');
+
+      // Incoming: slide in from left + fade in (starts 150ms later)
+      setTimeout(function() {
+        incoming.classList.add('hero__car--enter');
+      }, 150);
+
+      // Cleanup outgoing after exit animation (600ms)
+      setTimeout(function() {
+        outgoing.classList.remove('hero__car--exit');
+      }, 650);
+
+      // Swap incoming from animation to stable active state (150ms + 700ms + buffer)
+      setTimeout(function() {
+        incoming.classList.remove('hero__car--enter');
+        incoming.classList.add('hero__car--active');
+        transitioning = false;
+      }, 900);
+    }
+
+    function autoPlay() {
+      timer = setInterval(function() { goTo(current + 1); }, 3500);
+    }
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        clearInterval(timer);
+        goTo(i);
+        autoPlay();
+      });
+    });
+    autoPlay();
+  })();
+  </script>
+</body>
+</html>

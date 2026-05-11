@@ -1,0 +1,71 @@
+# Test/debug screenshots — kept locally, not in repo
+test-*.png
+debug-*.png
+fix*-*.png
+final-*.png
+enhanced-*.png
+desktop-*.png
+mobile-*.png
+analysis-*.png
+brands-*.png
+contact-*.png
+detail-*.png
+validate-*.png
+www.porsche.com_international_.png
+desktop-screenshot.png
+mobile-screenshot.png
+desktop-full.png
+mobile-full.png
+debug-ceo-mobile.png
+debug-ceo-desktop.png
+debug-ceo-mobile-full.png
+fix-ceo-desktop.png
+fix-ceo-mobile.png
+fix2-ceo-mobile-full.png
+final-ceo-desktop.png
+final-ceo-mobile.png
+final-ceo-mobile-bottom.png
+final-index-desktop.png
+final-inventario-desktop.png
+final-inventario-mobile.png
+final-inventario-toyota.png
+final-vehiculo-desktop.png
+test-ceo-desktop.png
+test-ceo-mobile.png
+test-final-home.png
+test-final-home-mobile.png
+test-final-inventario.png
+test-final-inventario-mobile.png
+test-final-vehiculo.png
+test-final-vehiculo-mobile.png
+test-home-desktop.png
+test-home-mobile.png
+test-index.png
+test-inventario.png
+test-inventario-desktop.png
+test-inventario-mobile.png
+test-vehiculo.png
+test-vehiculo2.png
+test-vehiculo3.png
+test-vehiculo-desktop.png
+test-vehiculo-mobile.png
+CEO.png
+nul
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code local settings (keep launch.json shared)
+.claude/settings.local.json
+
+# Lockfile (keep package.json, regenerate lock as needed)
+# package-lock.json — keep for reproducibility

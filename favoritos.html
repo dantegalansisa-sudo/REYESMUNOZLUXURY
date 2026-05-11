@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favoritos — Matos Dealer</title>
+  <meta name="description" content="Tus vehículos guardados en Matos Dealer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css?v=6">
+  <link rel="stylesheet" href="css/index.css?v=6">
+  <link rel="stylesheet" href="css/pages.css?v=1">
+</head>
+<body>
+  <div data-shell="navbar"></div>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <span class="page-header__eyebrow">— Mis favoritos</span>
+      <h1 class="page-header__title">Vehículos <em>guardados</em>.</h1>
+      <p class="page-header__lede">La selección que mantienes en seguimiento. Vuelve cuando quieras avanzar con cualquiera de ellos.</p>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="page-section__inner">
+      <div class="inventory__grid" id="favGrid"></div>
+      <div class="empty-state" id="favEmpty" style="display:none">
+        <h3>Aún no tienes favoritos</h3>
+        <p>Toca el corazón en cualquier vehículo del inventario para guardarlo aquí.</p>
+        <a href="index.html#inventario" class="btn-cinema btn-cinema--solid">Ir al inventario</a>
+      </div>
+    </div>
+  </section>
+
+  <div data-shell="footer"></div>
+
+  <script src="js/vehiculos-data.js?v=4"></script>
+  <script src="js/features.js?v=1"></script>
+  <script src="js/page-shell.js?v=1"></script>
+  <script>
+  (function () {
+    function fmt(v) { return v.precioConsultar ? 'Precio a consultar' : 'RD$ ' + v.precio.toLocaleString('es-DO'); }
+    function card(v, i) {
+      const img = (v.imagenes && v.imagenes[0]) || 'porche.png';
+      return `
+        <a class="inv-card" href="vehiculo.html#${v.id}" style="--i:${i}">
+          <div class="inv-card__media">
+            <img src="${img}" alt="${v.marca} ${v.modelo}" loading="lazy">
+            <span class="inv-card__badge">${v.condicion}</span>
+            <button class="wish-btn is-active" data-wish-id="${v.id}" aria-label="Quitar de favoritos">
+              <svg viewBox="0 0 24 24"><path class="wish-fill wish-stroke" stroke="currentColor" stroke-width="1.6" d="M12 21s-7-4.534-7-10a4.5 4.5 0 0 1 8-2.83A4.5 4.5 0 0 1 19 11c0 5.466-7 10-7 10z"/></svg>
+            </button>
+          </div>
+          <div class="inv-card__body">
+            <div class="inv-card__head">
+              <span class="inv-card__brand">${v.marca}</span>
+              <span class="inv-card__year">${v.ano}</span>
+            </div>
+            <h3 class="inv-card__title">${v.modelo}</h3>
+            <div class="inv-card__meta"><span>${v.tipo}</span><i>·</i><span>${v.transmision}</span><i>·</i><span>${v.combustible}</span></div>
+            <div class="inv-card__foot">
+              <span class="inv-card__price">${fmt(v)}</span>
+              <span class="inv-card__arrow"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>`;
+    }
+    function render() {
+      const ids = MatosWishlist.get();
+      const grid = document.getElementById('favGrid');
+      const empty = document.getElementById('favEmpty');
+      const items = VEHICULOS.filter(v => ids.includes(v.id));
+      if (!items.length) {
+        grid.innerHTML = '';
+        empty.style.display = '';
+      } else {
+        empty.style.display = 'none';
+        grid.innerHTML = items.map(card).join('');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', render);
+    window.addEventListener('wishlist:change', render);
+  })();
+  </script>
+</body>
+</html>
