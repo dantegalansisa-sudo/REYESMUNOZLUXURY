@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════
-// SHARED.JS — Isidro Motors
+// SHARED.JS — Charlie Auto Sales
 // Navbar, mobile menu, scroll reveal, smooth scroll
 // ═══════════════════════════════════════════
 
@@ -13,11 +13,11 @@ window.formatPrecio = function(vehiculo) {
 window.buildWhatsAppLink = function(vehiculo) {
   var price = (vehiculo.precio && !vehiculo.precioConsultar) ? ' (RD$ ' + vehiculo.precio.toLocaleString('es-DO') + ')' : '';
   var msg = encodeURIComponent(
-    'Hola, escribo desde su sitio web (https://dealer-seven-blush.vercel.app) y me interesa el ' +
+    'Hola, escribo desde su sitio web y me interesa el ' +
     vehiculo.marca + ' ' + vehiculo.modelo + ' ' + vehiculo.ano + price +
     '. ¿Tiene disponibilidad?'
   );
-  return 'https://wa.me/18293189380?text=' + msg;
+  return 'https://wa.me/19178053323?text=' + msg;
 };
 
 window.renderVehicleCard = function(v, index) {

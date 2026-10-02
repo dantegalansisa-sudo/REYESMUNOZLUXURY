@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   MATOS DEALER · CINEMATIC INDEX STYLES v6
+   CHARLIE AUTO SALES · CINEMATIC INDEX STYLES v7
    Palette: rhythmic DARK ↔ LIGHT alternation
 ═══════════════════════════════════════════ */
 
@@ -425,7 +425,9 @@
   white-space: nowrap;
   animation: marqueeScroll 50s linear infinite;
   width: max-content;
+  will-change: transform;
 }
+.brands-marquee.is-paused .brands-marquee__track { animation-play-state: paused; }
 .brands-marquee__item {
   font-family: 'Fraunces', serif;
   font-style: italic;
@@ -578,9 +580,7 @@
   top: 14px;
   left: 14px;
   padding: 6px 12px;
-  background: rgba(14,13,11,0.85);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: rgba(14,13,11,0.88);
   color: var(--champagne-100);
   font-family: var(--font-heading);
   font-size: 0.65rem;
@@ -756,9 +756,9 @@
   border: 1px solid rgba(120,90,40,0.12);
   border-radius: 24px;
   transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s;
-  transform-style: preserve-3d;
   overflow: hidden;
 }
+.exp__card.is-tilting { transition: transform 0.12s linear, box-shadow 0.5s; }
 .exp__card:hover { box-shadow: 0 30px 60px -25px rgba(60,40,15,0.2); }
 .exp__card--lg {
   grid-row: 1 / 3; grid-column: 1 / 2;
@@ -871,9 +871,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 16px;
-  background: rgba(14,13,11,0.85);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: rgba(14,13,11,0.9);
   color: var(--champagne-100);
   font-family: var(--font-heading);
   font-size: 0.72rem;
@@ -1199,9 +1197,68 @@
 .navbar__links { display: none; }
 .navbar__cta { display: none; }
 
-/* logo states */
-.navbar__logo-img { filter: brightness(0); transition: filter 0.3s ease; }
-.navbar.scrolled .navbar__logo-img { filter: brightness(0) invert(1); }
+/* ─── BRAND MARK (Charlie Auto Sales) ─── */
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.navbar__logo .brand-mark__badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #C0392B;
+  color: #F4F2EF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+  padding-bottom: 3px;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.brand-mark:hover .brand-mark__badge { transform: rotate(-12deg) scale(1.06); }
+.brand-mark__text { display: flex; flex-direction: column; line-height: 1; }
+.navbar__logo .brand-mark__text strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  color: #1A1A1A;
+}
+.navbar__logo .brand-mark__text small {
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #C0392B;
+  margin-top: 4px;
+}
+.navbar--home { padding-top: 18px; height: auto; }
+
+/* ─── SCROLL PROGRESS ─── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  background: #C0392B;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-marquee__track { animation: none; }
+  .scroll-progress { display: none; }
+}
 
 /* ═══════════════════════════════════════════
    HERO MOBILE — layout vertical ≤ 768px

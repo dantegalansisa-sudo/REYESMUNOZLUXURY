@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════
-// VEHICULO.JS — Isidro Motors
+// VEHICULO.JS — Charlie Auto Sales
 // Vehicle detail: gallery, specs, WhatsApp CTA, similar
 // ═══════════════════════════════════════════
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ─── Page Title ───
-  document.title = vehiculo.marca + ' ' + vehiculo.modelo + ' ' + vehiculo.ano + ' — Matos Dealer';
+  document.title = vehiculo.marca + ' ' + vehiculo.modelo + ' ' + vehiculo.ano + ' — Charlie Auto Sales';
 
   // ─── Breadcrumb ───
   document.getElementById('breadcrumbCurrent').textContent = vehiculo.marca + ' ' + vehiculo.modelo + ' ' + vehiculo.ano;
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ─── WhatsApp CTA ───
   document.getElementById('whatsappCTA').href = buildWhatsAppLink(vehiculo);
-  document.getElementById('callCTA').href = 'tel:+18296806829';
+  document.getElementById('callCTA').href = 'tel:+19178053323';
 
   // ─── Social Proof ───
   var viewers = Math.floor(Math.random() * 8) + 2;

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   MATOS DEALER · PAGES (shared features + internal pages)
+   CHARLIE AUTO SALES · PAGES (shared features + internal pages)
 ═══════════════════════════════════════════ */
 
 :root {
@@ -69,13 +69,11 @@ body.no-scroll { overflow: hidden; }
 .cookies-banner {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  right: 100px; /* deja libre el botón flotante de WhatsApp */
   z-index: 900;
   max-width: 440px;
   padding: 22px 24px;
-  background: rgba(14,13,11,0.96);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  background: rgba(14,13,11,0.97);
   border: 1px solid rgba(244,239,230,0.12);
   border-radius: 18px;
   box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55);
@@ -130,7 +128,7 @@ body.no-scroll { overflow: hidden; }
   color: var(--champagne-100);
 }
 @media (max-width: 720px) {
-  .cookies-banner { right: 12px; left: 12px; bottom: 12px; max-width: none; padding: 18px; }
+  .cookies-banner { right: 12px; left: 12px; bottom: 96px; max-width: none; padding: 18px; }
 }
 
 /* ═══════════════════════════════════════════
@@ -144,9 +142,7 @@ body.no-scroll { overflow: hidden; }
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(14,13,11,0.55);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: rgba(14,13,11,0.62);
   border: 1px solid rgba(244,239,230,0.18);
   color: var(--champagne-100);
   display: inline-flex;
