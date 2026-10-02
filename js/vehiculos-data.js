@@ -3,7 +3,7 @@ const VEHICULOS = [
   {
     id: 1,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Black Edition",
     ano: 2024,
     tipo: "Pickup",
     precio: 0,
@@ -24,7 +24,7 @@ const VEHICULOS = [
   {
     id: 2,
     marca: "Mercedes-Benz",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "GLE Coupé AMG",
     ano: 2024,
     tipo: "SUV",
     precio: 0,
@@ -45,7 +45,7 @@ const VEHICULOS = [
   {
     id: 3,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Military",
     ano: 2023,
     tipo: "Pickup",
     precio: 0,
@@ -66,7 +66,7 @@ const VEHICULOS = [
   {
     id: 4,
     marca: "Volvo",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "XC90 R-Design",
     ano: 2024,
     tipo: "SUV",
     precio: 0,
@@ -87,7 +87,7 @@ const VEHICULOS = [
   {
     id: 5,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Extreme",
     ano: 2024,
     tipo: "Pickup",
     precio: 0,
@@ -108,7 +108,7 @@ const VEHICULOS = [
   {
     id: 6,
     marca: "Chevrolet",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Camaro SS Convertible",
     ano: 2024,
     tipo: "Deportivo",
     precio: 0,
@@ -131,7 +131,7 @@ const VEHICULOS = [
   {
     id: 7,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Off-Road",
     ano: 2024,
     tipo: "SUV",
     precio: 0,
@@ -152,7 +152,7 @@ const VEHICULOS = [
   {
     id: 8,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Overland",
     ano: 2024,
     tipo: "Pickup",
     precio: 0,
@@ -173,7 +173,7 @@ const VEHICULOS = [
   {
     id: 9,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Rubicon",
     ano: 2024,
     tipo: "Pickup",
     precio: 0,
@@ -194,7 +194,7 @@ const VEHICULOS = [
   {
     id: 10,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Wrangler Unlimited",
     ano: 2024,
     tipo: "SUV",
     precio: 0,
@@ -215,7 +215,7 @@ const VEHICULOS = [
   {
     id: 11,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Rubicon Sand",
     ano: 2023,
     tipo: "Pickup",
     precio: 0,
@@ -236,7 +236,7 @@ const VEHICULOS = [
   {
     id: 12,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Gladiator Champagne",
     ano: 2023,
     tipo: "Pickup",
     precio: 0,
@@ -257,7 +257,7 @@ const VEHICULOS = [
   {
     id: 13,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Wrangler Convertible",
     ano: 2024,
     tipo: "SUV",
     precio: 0,
@@ -278,7 +278,7 @@ const VEHICULOS = [
   {
     id: 14,
     marca: "Chevrolet",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Corvette C8",
     ano: 2024,
     tipo: "Deportivo",
     precio: 0,
@@ -299,7 +299,7 @@ const VEHICULOS = [
   {
     id: 15,
     marca: "BMW",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "M4 Competition",
     ano: 2024,
     tipo: "Sedan",
     precio: 0,
@@ -320,7 +320,7 @@ const VEHICULOS = [
   {
     id: 16,
     marca: "Jeep",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Grand Cherokee",
     ano: 2024,
     tipo: "SUV",
     precio: 0,
@@ -341,7 +341,7 @@ const VEHICULOS = [
   {
     id: 17,
     marca: "Ford",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "Mustang GT",
     ano: 2024,
     tipo: "Deportivo",
     precio: 0,
@@ -362,7 +362,7 @@ const VEHICULOS = [
   {
     id: 18,
     marca: "Porsche",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "911 Carrera",
     ano: 2024,
     tipo: "Deportivo",
     precio: 0,
@@ -383,7 +383,7 @@ const VEHICULOS = [
   {
     id: 19,
     marca: "Mercedes-Benz",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "C-Class AMG Line",
     ano: 2024,
     tipo: "Sedan",
     precio: 0,
@@ -404,7 +404,7 @@ const VEHICULOS = [
   {
     id: 20,
     marca: "Mercedes-Benz",
-    modelo: "Reyes Muñoz Luxury Cars",
+    modelo: "GLE AMG",
     ano: 2024,
     tipo: "SUV",
     precio: 0,

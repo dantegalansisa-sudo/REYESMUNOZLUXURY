@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reyes Muñoz Luxury Cars — Concesionario Premium · República Dominicana</title>
-  <meta name="description" content="Reyes Muñoz Luxury Cars · Concesionario premium en Santo Domingo. Inventario multimarca, servicio impecable, experiencia exclusiva.">
+  <title>Charlie Auto Sales — Venta de Vehículos · Santo Domingo, República Dominicana</title>
+  <meta name="description" content="Charlie Auto Sales · Venta de vehículos en Santo Domingo, D.N. Inventario multimarca, financiamiento, traspaso incluido y atención directa por WhatsApp al +1 (917) 805-3323.">
+  <meta name="theme-color" content="#F4F2EF">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@300;400;500&family=Outfit:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/shared.css?v=6">
-  <link rel="stylesheet" href="css/index.css?v=6">
-  <link rel="stylesheet" href="css/pages.css?v=1">
+  <link rel="preload" as="image" href="imagenes/car1.webp" type="image/webp">
+  <link rel="stylesheet" href="css/shared.css?v=7">
+  <link rel="stylesheet" href="css/index.css?v=7">
+  <link rel="stylesheet" href="css/pages.css?v=2">
 </head>
 <body>
 
   <!-- ═══════════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════════ -->
-  <nav class="navbar navbar--floating" id="navbar">
-    <a href="index.html" class="navbar__logo"><img src="logo.png" alt="Reyes Muñoz Luxury Cars" class="navbar__logo-img" style="height:150px;width:auto;object-fit:contain;"></a>
+  <nav class="navbar navbar--floating navbar--home" id="navbar">
+    <a href="index.html" class="navbar__logo brand-mark" aria-label="Charlie Auto Sales · Inicio">
+      <span class="brand-mark__badge" aria-hidden="true">C</span>
+      <span class="brand-mark__text"><strong>Charlie</strong><small>Auto Sales</small></span>
+    </a>
     <button class="navbar__burger" id="burger" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
@@ -31,7 +37,7 @@
     <a href="#manifesto">Filosofía</a>
     <a href="#experience">Experiencia</a>
     <a href="#showroom">Showroom</a>
-    <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="btn-cinema btn-cinema--solid btn-cinema--invert" style="margin-top:24px">Contactar por WhatsApp</a>
+    <a href="https://wa.me/19178053323?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="btn-cinema btn-cinema--solid btn-cinema--invert" style="margin-top:24px">Contactar por WhatsApp</a>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -41,7 +47,7 @@
 
     <!-- Social icons — columna vertical izquierda -->
     <div class="hero__socials">
-      <a href="https://www.instagram.com/reyesmunozluxurycars/" target="_blank" rel="noopener" class="hero__social" aria-label="Instagram">
+      <a href="#" target="_blank" rel="noopener" class="hero__social" aria-label="Instagram">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
           <defs>
             <linearGradient id="ig-grad" x1="0" y1="24" x2="24" y2="0" gradientUnits="userSpaceOnUse">
@@ -62,7 +68,7 @@
           <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
       </a>
-      <a href="#" class="hero__social" aria-label="WhatsApp">
+      <a href="https://wa.me/19178053323?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="hero__social" aria-label="WhatsApp">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
@@ -79,7 +85,7 @@
           <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true">
             <path d="M4.5 0C2.57 0 1 1.57 1 3.5c0 2.63 3.5 8.5 3.5 8.5S8 6.13 8 3.5C8 1.57 6.43 0 4.5 0zm0 4.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z" fill="currentColor"/>
           </svg>
-          REYES MUÑOZ LUXURY CARS · REPÚBLICA DOMINICANA
+          CHARLIE AUTO SALES · SANTO DOMINGO, R.D.
         </span>
 
         <!-- Headline -->
@@ -89,67 +95,33 @@
         <p class="hero__sub">Vehículos para quienes exigen más.</p>
 
         <!-- Search bar -->
-        <div class="hero__search">
-          <select class="hero__select" aria-label="Marca">
-            <option value="" disabled selected>Marca</option>
-            <option>Toyota</option>
-            <option>Honda</option>
-            <option>Hyundai</option>
-            <option>BMW</option>
-            <option>Mercedes</option>
-            <option>Kia</option>
-            <option>Nissan</option>
-            <option>Mazda</option>
+        <form class="hero__search" id="heroSearch" action="inventario.html" method="get">
+          <select class="hero__select" name="marca" id="heroMarca" aria-label="Marca">
+            <option value="" selected>Marca</option>
           </select>
-          <select class="hero__select" aria-label="Modelo">
-            <option value="" disabled selected>Modelo</option>
-            <option>Corolla</option>
-            <option>Civic</option>
-            <option>Tucson</option>
-            <option>CR-V</option>
-            <option>RAV4</option>
-            <option>Hilux</option>
-            <option>Ranger</option>
-            <option>Accent</option>
-            <option>Elantra</option>
-            <option>Sentra</option>
-            <option>Versa</option>
-            <option>Kicks</option>
-            <option>Juke</option>
-            <option>320i</option>
-            <option>330i</option>
-            <option>C200</option>
-            <option>GLC</option>
-            <option>X5</option>
-            <option>Fortuner</option>
-            <option>Prado</option>
+          <select class="hero__select" name="buscar" id="heroModelo" aria-label="Modelo">
+            <option value="" selected>Modelo</option>
           </select>
-          <select class="hero__select hero__select--last" aria-label="Año">
-            <option value="" disabled selected>Año</option>
-            <option>2025</option>
-            <option>2024</option>
-            <option>2023</option>
-            <option>2022</option>
-            <option>2021</option>
-            <option>2020</option>
+          <select class="hero__select hero__select--last" name="ano" id="heroAno" aria-label="Año">
+            <option value="" selected>Año</option>
           </select>
-          <button class="hero__search-btn" aria-label="Buscar">
+          <button type="submit" class="hero__search-btn" aria-label="Buscar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4F2EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
           </button>
-        </div>
+        </form>
 
         <!-- Categorías -->
         <div class="hero__cats">
           <span class="hero__cats-dash">—</span>
-          <a href="#" class="hero__cat">Sedan</a>
+          <a href="inventario.html?tipo=Sedan" class="hero__cat">Sedán</a>
           <span class="hero__cats-sep">·</span>
-          <a href="#" class="hero__cat">SUV</a>
+          <a href="inventario.html?tipo=SUV" class="hero__cat">SUV</a>
           <span class="hero__cats-sep">·</span>
-          <a href="#" class="hero__cat">Deportivos</a>
+          <a href="inventario.html?tipo=Deportivo" class="hero__cat">Deportivos</a>
           <span class="hero__cats-sep">·</span>
-          <a href="#" class="hero__cat">Camionetas</a>
+          <a href="inventario.html?tipo=Pickup" class="hero__cat">Camionetas</a>
         </div>
 
       </div>
@@ -159,9 +131,9 @@
         <div class="hero__slider-wrap">
           <div class="hero__circle"></div>
           <div class="hero__cars">
-            <img src="imagenes/car1.png" class="hero__car hero__car--active" alt="Vehículo premium 1" loading="eager">
-            <img src="imagenes/car2.png" class="hero__car" alt="Vehículo premium 2" loading="lazy">
-            <img src="imagenes/car3.png" class="hero__car" alt="Vehículo premium 3" loading="lazy">
+            <img src="imagenes/car1.webp" class="hero__car hero__car--active" alt="Vehículo en venta · Charlie Auto Sales" width="1080" height="720" decoding="async" fetchpriority="high">
+            <img src="imagenes/car2.webp" class="hero__car" alt="Vehículo en venta · Charlie Auto Sales" width="1080" height="720" decoding="async">
+            <img src="imagenes/car3.webp" class="hero__car" alt="Vehículo en venta · Charlie Auto Sales" width="1080" height="720" decoding="async">
           </div>
           <div class="hero__dots">
             <button class="hero__dot hero__dot--active" aria-label="Vehículo 1"></button>
@@ -185,24 +157,24 @@
   ═══════════════════════════════════════════ -->
   <section class="brands-marquee" id="brands">
     <div class="brands-marquee__track">
-      <span class="brands-marquee__item">Porsche</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Jeep</span><span class="brands-marquee__sep">✦</span>
       <span class="brands-marquee__item">Mercedes-Benz</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Porsche</span><span class="brands-marquee__sep">✦</span>
       <span class="brands-marquee__item">BMW</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Audi</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Lexus</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Chevrolet</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Ford</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item">Volvo</span><span class="brands-marquee__sep">✦</span>
       <span class="brands-marquee__item">Land Rover</span><span class="brands-marquee__sep">✦</span>
       <span class="brands-marquee__item">Toyota</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Honda</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Volvo</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Porsche</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Mercedes-Benz</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">BMW</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Audi</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Lexus</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Land Rover</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Toyota</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Honda</span><span class="brands-marquee__sep">✦</span>
-      <span class="brands-marquee__item">Volvo</span><span class="brands-marquee__sep">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Jeep</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Mercedes-Benz</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Porsche</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">BMW</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Chevrolet</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Ford</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Volvo</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Land Rover</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
+      <span class="brands-marquee__item" aria-hidden="true">Toyota</span><span class="brands-marquee__sep" aria-hidden="true">✦</span>
     </div>
   </section>
 
@@ -229,13 +201,7 @@
 
     <div class="inventory__filters" id="inventoryFilters">
       <button class="inv-chip is-active" data-filter="all">Todos</button>
-      <button class="inv-chip" data-filter="Porsche">Porsche</button>
-      <button class="inv-chip" data-filter="Mercedes">Mercedes-Benz</button>
-      <button class="inv-chip" data-filter="BMW">BMW</button>
-      <button class="inv-chip" data-filter="Audi">Audi</button>
-      <button class="inv-chip" data-filter="Toyota">Toyota</button>
-      <button class="inv-chip" data-filter="Honda">Honda</button>
-      <button class="inv-chip" data-filter="Land Rover">Land Rover</button>
+      <!-- marcas: generadas desde vehiculos-data.js -->
     </div>
 
     <div class="inventory__grid" id="inventoryGrid"><!-- JS-rendered --></div>
@@ -378,7 +344,7 @@
         <div class="showroom__info">
           <div class="showroom__info-row">
             <span class="showroom__info-label">Dirección</span>
-            <span class="showroom__info-value">Av. Winston Churchill, Piantini<br>Santo Domingo, D.N.</span>
+            <span class="showroom__info-value">Av. Abraham Lincoln #1003, Piantini<br>Santo Domingo, D.N.</span>
           </div>
           <div class="showroom__info-row">
             <span class="showroom__info-label">Horario</span>
@@ -386,12 +352,12 @@
           </div>
           <div class="showroom__info-row">
             <span class="showroom__info-label">WhatsApp</span>
-            <span class="showroom__info-value">+1 (829) 318-9380</span>
+            <a class="showroom__info-value" href="https://wa.me/19178053323" target="_blank" rel="noopener">+1 (917) 805-3323</a>
           </div>
         </div>
 
         <div class="showroom__cta">
-          <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20agendar%20una%20visita%20al%20showroom." class="btn-cinema btn-cinema--solid btn-cinema--invert" target="_blank" rel="noopener">
+          <a href="https://wa.me/19178053323?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20visita%20al%20showroom." class="btn-cinema btn-cinema--solid btn-cinema--invert" target="_blank" rel="noopener">
             Agendar visita privada
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -400,11 +366,11 @@
 
       <div class="showroom__map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.7!2d-69.945!3d18.474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.%20Winston%20Churchill%2C%20Santo%20Domingo!5e0!3m2!1ses!2sdo!4v1"
+          src="https://www.google.com/maps?q=Av.+Abraham+Lincoln,+Piantini,+Santo+Domingo,+Rep%C3%BAblica+Dominicana&z=15&output=embed"
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Showroom Matos Dealer · Santo Domingo">
+          title="Showroom Charlie Auto Sales · Santo Domingo">
         </iframe>
         <div class="showroom__map-tag">
           <span class="showroom__map-dot"></span>
@@ -429,18 +395,18 @@
       </div>
 
       <div class="concierge__grid">
-        <a href="tel:+18293189380" class="concierge__card">
+        <a href="tel:+19178053323" class="concierge__card">
           <span class="concierge__icon">
             <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22.5 6c1.5.5 2.5 1.5 3 3M22.5 2c3 1 5 3 6 6M21 19l-2 1c-3-2-5-4-7-7l1-2c.5-.5.5-1 0-1.5l-3-4C9.5 4.8 8.5 5 8 5.5L6 7c-1 1-1 3-1 5 0 4 3 9 7 13s9 7 13 7c2 0 4 0 5-1l1.5-2c.5-.5.5-1.5 0-2l-4-3c-.5-.5-1-.5-1.5 0z"/></svg>
           </span>
           <div>
             <span class="concierge__label">Llámanos</span>
-            <span class="concierge__value">+1 (829) 318-9380</span>
+            <span class="concierge__value">+1 (917) 805-3323</span>
             <span class="concierge__hint">Lun—Sáb · 9:00 — 19:00</span>
           </div>
         </a>
 
-        <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="concierge__card concierge__card--accent">
+        <a href="https://wa.me/19178053323?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="concierge__card concierge__card--accent">
           <span class="concierge__icon">
             <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor"><path d="M16 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.351.617 4.654 1.79 6.683L2.667 29.333l6.86-1.79A13.323 13.323 0 0 0 16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667zm6.07 16.107c-.333-.166-1.967-.97-2.272-1.082-.305-.111-.527-.166-.749.167s-.86 1.082-1.054 1.304c-.194.222-.388.25-.722.083-.333-.167-1.405-.519-2.677-1.654-.99-.882-1.659-1.97-1.853-2.303-.194-.333-.021-.514.146-.68.149-.149.333-.388.499-.583.166-.194.222-.333.333-.555.111-.222.056-.416-.028-.583-.084-.166-.749-1.804-1.027-2.471-.27-.65-.546-.563-.749-.573-.194-.01-.416-.012-.638-.012s-.583.083-.888.416c-.305.333-1.165 1.137-1.165 2.775s1.193 3.222 1.359 3.444c.166.222 2.348 3.585 5.687 5.026.795.343 1.415.547 1.898.7.798.254 1.524.218 2.098.132.64-.096 1.967-.804 2.244-1.582.277-.778.277-1.444.194-1.582-.083-.139-.305-.222-.638-.388z"/></svg>
           </span>
@@ -451,13 +417,13 @@
           </div>
         </a>
 
-        <a href="mailto:contacto@matosdealer.do" class="concierge__card">
+        <a href="mailto:ventas@charlieautosales.do" class="concierge__card">
           <span class="concierge__icon">
             <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="26" height="20" rx="2"/><path d="M3 9l13 9 13-9"/></svg>
           </span>
           <div>
             <span class="concierge__label">Escríbenos</span>
-            <span class="concierge__value">contacto@matosdealer.do</span>
+            <span class="concierge__value">ventas@charlieautosales.do</span>
             <span class="concierge__hint">Atención confidencial</span>
           </div>
         </a>
@@ -476,9 +442,9 @@
   <footer class="footer-cinema">
     <div class="footer-cinema__top">
       <h3 class="footer-cinema__bigword">
-        Matos<br><em>Dealer</em>.
+        Charlie<br><em>Auto Sales</em>.
       </h3>
-      <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." class="footer-cinema__cta" target="_blank" rel="noopener">
+      <a href="https://wa.me/19178053323?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." class="footer-cinema__cta" target="_blank" rel="noopener">
         <span>Iniciar conversación</span>
         <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 16h20M20 8l8 8-8 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -497,39 +463,39 @@
       <div>
         <span class="footer-cinema__label">Contacto</span>
         <ul>
-          <li><a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener">+1 (829) 318-9380</a></li>
-          <li><a href="mailto:contacto@matosdealer.do">contacto@matosdealer.do</a></li>
-          <li>Santo Domingo · D.N.</li>
+          <li><a href="https://wa.me/19178053323?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener">+1 (917) 805-3323</a></li>
+          <li><a href="mailto:ventas@charlieautosales.do">ventas@charlieautosales.do</a></li>
+          <li>Av. Abraham Lincoln #1003, Piantini<br>Santo Domingo · D.N.</li>
         </ul>
       </div>
       <div>
         <span class="footer-cinema__label">Síguenos</span>
         <ul>
           <li><a href="#" aria-label="Instagram">Instagram</a></li>
-          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
-          <li><a href="#" aria-label="YouTube">YouTube</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+          <li><a href="#" aria-label="TikTok">TikTok</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-cinema__bottom">
-      <p>&copy; 2026 Matos Dealer · Demo de referencia. Sitio no oficial.</p>
+      <p>&copy; 2026 Charlie Auto Sales · Demo de referencia. Sitio no oficial.</p>
       <p>Diseño cinematográfico · República Dominicana</p>
     </div>
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a href="https://wa.me/18095494593?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20%28https%3A%2F%2Fdealer-seven-blush.vercel.app%29%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <a href="https://wa.me/19178053323?text=Hola%2C%20escribo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20veh%C3%ADculos%20disponibles." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M16.001 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.351.617 4.654 1.79 6.683L2.667 29.333l6.86-1.79A13.323 13.323 0 0 0 16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667zm0 24.4a11.04 11.04 0 0 1-5.626-1.539l-.404-.24-4.075 1.069 1.087-3.974-.263-.418A11.07 11.07 0 0 1 4.933 16C4.933 9.892 9.893 4.933 16 4.933s11.067 4.96 11.067 11.067-4.96 11.067-11.067 11.067zm6.07-8.293c-.333-.166-1.967-.97-2.272-1.082-.305-.111-.527-.166-.749.167s-.86 1.082-1.054 1.304c-.194.222-.388.25-.722.083-.333-.167-1.405-.519-2.677-1.654-.99-.882-1.659-1.97-1.853-2.303-.194-.333-.021-.514.146-.68.149-.149.333-.388.499-.583.166-.194.222-.333.333-.555.111-.222.056-.416-.028-.583-.084-.166-.749-1.804-1.027-2.471-.27-.65-.546-.563-.749-.573-.194-.01-.416-.012-.638-.012s-.583.083-.888.416c-.305.333-1.165 1.137-1.165 2.775s1.193 3.222 1.359 3.444c.166.222 2.348 3.585 5.687 5.026.795.343 1.415.547 1.898.7.798.254 1.524.218 2.098.132.64-.096 1.967-.804 2.244-1.582.277-.778.277-1.444.194-1.582-.083-.139-.305-.222-.638-.388z"/></svg>
   </a>
 
   <!-- Vehicle data + scripts -->
-  <script src="js/vehiculos-data.js?v=4"></script>
-  <script src="js/features.js?v=1"></script>
+  <script src="js/vehiculos-data.js?v=5"></script>
+  <script src="js/features.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/cinematic.js?v=3"></script>
+  <script src="js/cinematic.js?v=4"></script>
   <script>
   (function() {
     var cars = document.querySelectorAll('.hero__car');
@@ -573,7 +539,10 @@
       }, 900);
     }
 
+    var visible = true;
     function autoPlay() {
+      clearInterval(timer);
+      if (!visible || document.hidden) return;
       timer = setInterval(function() { goTo(current + 1); }, 3500);
     }
     dots.forEach(function(dot, i) {
@@ -582,6 +551,16 @@
         goTo(i);
         autoPlay();
       });
+    });
+    // No animar el slider mientras el hero no se ve (libera el hilo al hacer scroll)
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries) {
+        visible = entries[0].isIntersecting;
+        visible ? autoPlay() : clearInterval(timer);
+      }).observe(document.getElementById('hero'));
+    }
+    document.addEventListener('visibilitychange', function() {
+      document.hidden ? clearInterval(timer) : autoPlay();
     });
     autoPlay();
   })();

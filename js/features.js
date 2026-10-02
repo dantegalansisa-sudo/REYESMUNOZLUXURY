@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   MATOS DEALER · FEATURES (shared utilities)
+   CHARLIE AUTO SALES · FEATURES (shared utilities)
    Wishlist · Cookies · Demo notice · Finance calc · Lightbox · Modals
 ═══════════════════════════════════════════ */
 (function (global) {

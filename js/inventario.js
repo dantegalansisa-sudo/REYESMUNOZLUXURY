@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════
-// INVENTARIO.JS — Isidro Motors
+// INVENTARIO.JS — Charlie Auto Sales
 // Filter engine, search, sort, pagination
 // ═══════════════════════════════════════════
 
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   if (urlParams.get('tipo')) {
     state.tipos = urlParams.get('tipo').split(',');
+  }
+  if (urlParams.get('ano')) {
+    state.yearFrom = state.yearTo = parseInt(urlParams.get('ano')) || null;
   }
 
   // ─── Populate Dynamic Filters ───
@@ -72,6 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
     yearTo.innerHTML = '<option value="">Hasta</option>' + ANOS_DISPONIBLES.map(function(y) {
       return '<option value="' + y + '">' + y + '</option>';
     }).join('');
+    if (state.yearFrom) yearFrom.value = state.yearFrom;
+    if (state.yearTo) yearTo.value = state.yearTo;
 
     // Price ranges
     var priceRanges = [500000, 800000, 1000000, 1200000, 1500000, 2000000, 2500000, 3000000, 4000000, 5000000];

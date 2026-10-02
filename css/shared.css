@@ -36,9 +36,16 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Lenis smooth scroll: native smooth-scroll must be off or both fight each frame */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -730,4 +737,4 @@ footer {
 }
 .inv-badge--new { background: #25D366; color: #fff; }
 .inv-badge--offer { background: var(--color-accent); color: #fff; }
-.inv-badge--used { background: rgba(0,0,0,0.6); color: #fff; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.inv-badge--used { background: rgba(0,0,0,0.7); color: #fff; }

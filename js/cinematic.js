@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   MATOS DEALER · CINEMATIC ENGINE v2
+   CHARLIE AUTO SALES · CINEMATIC ENGINE v2
 ═══════════════════════════════════════════ */
 
 (() => {
@@ -33,19 +33,29 @@
     document.addEventListener('scroll', tryPlay, { once: true });
   }
 
-  /* ─── LENIS SMOOTH SCROLL (lightweight) ─── */
+  /* ─── LENIS SMOOTH SCROLL ───
+     Un solo loop de animación: Lenis se alimenta del ticker de GSAP.
+     (Antes corría en su propio requestAnimationFrame Y en el ticker,
+     avanzando dos veces por frame → tirones al hacer scroll.) */
+  const hasGsap = !!(window.gsap && window.ScrollTrigger);
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
   let lenis;
   if (!reduceMotion && !isMobile && window.Lenis) {
     lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.11,
       smoothWheel: true,
-      lerp: 0.1,
       wheelMultiplier: 1,
-      touchMultiplier: 1.5,
     });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
+
+    if (hasGsap) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
+      requestAnimationFrame(raf);
+    }
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', (e) => {
@@ -61,20 +71,32 @@
     });
   }
 
-  /* ─── GSAP ScrollTrigger sync ─── */
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-    }
+  /* ─── SCROLL PROGRESS BAR (transform only, sin layout) ─── */
+  if (!reduceMotion) {
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    let ticking = false;
+    const paint = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+    }, { passive: true });
+    paint();
   }
 
   /* ─── NAVBAR SCROLL STATE ─── */
   const navbar = document.getElementById('navbar');
   if (navbar) {
-    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 80);
+    let scrolled = null;
+    const onScroll = () => {
+      const next = window.scrollY > 80;
+      if (next !== scrolled) { scrolled = next; navbar.classList.toggle('scrolled', next); }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
@@ -122,6 +144,36 @@
 
   let activeFilter = 'all';
   let activeQuery = '';
+  const hasData = typeof VEHICULOS !== 'undefined';
+
+  // Chips de marca generados desde el inventario real (evita filtros vacíos)
+  if (filtersWrap && hasData) {
+    filtersWrap.insertAdjacentHTML('beforeend', MARCAS_DISPONIBLES.map(m =>
+      `<button class="inv-chip" data-filter="${m}">${m}</button>`).join(''));
+  }
+
+  /* ─── HERO SEARCH · opciones reales del inventario ─── */
+  const heroForm = document.getElementById('heroSearch');
+  if (heroForm && hasData) {
+    const marcaSel = document.getElementById('heroMarca');
+    const modeloSel = document.getElementById('heroModelo');
+    const anoSel = document.getElementById('heroAno');
+    const opts = (list) => list.map(v => `<option value="${v}">${v}</option>`).join('');
+    const fillModels = () => {
+      const marca = marcaSel.value;
+      const models = [...new Set(VEHICULOS.filter(v => !marca || v.marca === marca).map(v => v.modelo))].sort();
+      modeloSel.innerHTML = '<option value="">Modelo</option>' + opts(models);
+    };
+    marcaSel.insertAdjacentHTML('beforeend', opts(MARCAS_DISPONIBLES));
+    anoSel.insertAdjacentHTML('beforeend', opts(ANOS_DISPONIBLES));
+    fillModels();
+    marcaSel.addEventListener('change', fillModels);
+    // No enviar parámetros vacíos (?marca=&buscar=…)
+    heroForm.addEventListener('submit', () => {
+      heroForm.querySelectorAll('select').forEach(sel => { sel.disabled = !sel.value; });
+      setTimeout(() => heroForm.querySelectorAll('select').forEach(sel => { sel.disabled = false; }), 0);
+    });
+  }
 
   function formatPrice(v) {
     if (v.precioConsultar) return 'Precio a consultar';
@@ -161,11 +213,11 @@
   }
 
   function applyFilters() {
-    if (!grid || typeof VEHICULOS === 'undefined') return;
+    if (!grid || !hasData) return;
     const q = activeQuery.trim().toLowerCase();
     const list = VEHICULOS.filter(v => {
       const matchBrand = activeFilter === 'all' ||
-        v.marca.toLowerCase().includes(activeFilter.toLowerCase());
+        v.marca === activeFilter;
       if (!matchBrand) return false;
       if (!q) return true;
       const haystack = `${v.marca} ${v.modelo} ${v.tipo} ${v.ano} ${v.color || ''}`.toLowerCase();
@@ -197,81 +249,111 @@
 
   applyFilters();
 
-  /* ─── REVEAL ON SCROLL ─── */
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.utils.toArray('.section-display, .section-eyebrow, .section-lede').forEach(el => {
-      gsap.fromTo(el,
-        { y: 32, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 0.95, ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-        }
-      );
-    });
-
-    gsap.utils.toArray('.manifesto__block').forEach(el => {
-      gsap.fromTo(el,
-        { y: 50, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 82%', once: true }
-        }
-      );
-    });
-
-    gsap.utils.toArray('.exp__card').forEach((el, i) => {
-      gsap.fromTo(el,
-        { y: 40, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
-          delay: (i % 3) * 0.06,
-          scrollTrigger: { trigger: el, start: 'top 90%', once: true }
-        }
-      );
-    });
-
-    // Inventory cards reveal
-    const observer = new MutationObserver(() => {
-      gsap.utils.toArray('.inv-card').forEach((el, i) => {
-        if (el.dataset.revealed) return;
-        el.dataset.revealed = '1';
-        gsap.fromTo(el,
-          { y: 30, opacity: 0 },
-          {
-            y: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
-            delay: (i % 3) * 0.05,
-            scrollTrigger: { trigger: el, start: 'top 92%', once: true }
-          }
-        );
+  /* ─── REVEAL ON SCROLL ───
+     ScrollTrigger.batch agrupa los elementos que entran juntos en una sola
+     animación (menos triggers, menos trabajo por frame). Solo transform/opacity. */
+  if (hasGsap && !reduceMotion) {
+    const reveal = (selector, { y = 36, stagger = 0.08, start = 'top 88%', duration = 0.9 } = {}) => {
+      const els = gsap.utils.toArray(selector).filter(el => !el.dataset.revealed);
+      if (!els.length) return;
+      els.forEach(el => { el.dataset.revealed = '1'; });
+      gsap.set(els, { autoAlpha: 0, y });
+      ScrollTrigger.batch(els, {
+        start,
+        once: true,
+        onEnter: batch => gsap.to(batch, {
+          autoAlpha: 1, y: 0, duration, ease: 'power3.out', stagger,
+          overwrite: true, clearProps: 'transform,visibility',
+        }),
       });
+    };
+
+    // Hero: entrada escalonada al cargar
+    gsap.from('.hero__badge, .hero__title, .hero__sub, .hero__search, .hero__cats', {
+      y: 24, autoAlpha: 0, duration: 0.9, ease: 'power3.out', stagger: 0.08, delay: 0.1,
+      clearProps: 'transform,visibility',
     });
-    if (grid) observer.observe(grid, { childList: true });
-    // Initial trigger for cards already there
-    gsap.utils.toArray('.inv-card').forEach((el, i) => {
-      el.dataset.revealed = '1';
-      gsap.fromTo(el,
-        { y: 30, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
-          delay: (i % 3) * 0.05,
-          scrollTrigger: { trigger: el, start: 'top 92%', once: true }
-        }
-      );
-    });
+    gsap.from('.hero__circle', { scale: 0.6, autoAlpha: 0, duration: 1.1, ease: 'expo.out', delay: 0.15, clearProps: 'all' });
+
+    // Hero: parallax suave al salir (scrub, solo transform)
+    if (!isMobile) {
+      gsap.to('.hero__slider-wrap', {
+        yPercent: -18, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+      });
+      gsap.to('.hero__text', {
+        y: -60, autoAlpha: 0.2, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'center center', end: 'bottom top', scrub: true },
+      });
+    }
+
+    reveal('.section-eyebrow, .section-display, .section-lede', { y: 32, stagger: 0.1 });
+    reveal('.manifesto__block', { y: 50, start: 'top 85%' });
+    reveal('.exp__card', { y: 40, stagger: 0.07, start: 'top 92%' });
+    reveal('.showroom__info-row, .showroom__cta, .showroom__map', { y: 28, stagger: 0.06 });
+    reveal('.concierge__card', { y: 30, stagger: 0.08, start: 'top 92%' });
+    reveal('.footer-cinema__bigword, .footer-cinema__cta', { y: 40, stagger: 0.1, start: 'top 95%' });
+
+    // Tarjetas del inventario: se re-renderizan al filtrar
+    const revealCards = () => {
+      reveal('.inv-card', { y: 30, stagger: 0.06, start: 'top 94%', duration: 0.7 });
+    };
+    revealCards();
+    if (grid) {
+      let refreshTimer;
+      new MutationObserver(() => {
+        revealCards();
+        // El alto del grid cambió: recalcular posiciones de todos los triggers
+        clearTimeout(refreshTimer);
+        refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 120);
+      }).observe(grid, { childList: true });
+    }
+
+    // Recalcular cuando terminan de cargar fuentes (cambian alturas de texto)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => ScrollTrigger.refresh());
+    }
   }
 
-  /* ─── 3D TILT (experience cards) ─── */
+  /* ─── PAUSAR ANIMACIONES FUERA DE PANTALLA ─── */
+  const marquee = document.querySelector('.brands-marquee');
+  if (marquee && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      marquee.classList.toggle('is-paused', !entry.isIntersecting);
+    }).observe(marquee);
+  }
+
+  /* ─── 3D TILT (experience cards) · rAF + rect cacheado ─── */
   if (!reduceMotion && !isMobile) {
+    const invalidators = [];
     document.querySelectorAll('[data-tilt]').forEach(el => {
+      let rect = null;
+      invalidators.push(() => { rect = null; });
+      let frame = 0;
+      let px = 0, py = 0;
+      const apply = () => {
+        frame = 0;
+        el.style.transform = `perspective(1000px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg)`;
+      };
+      el.addEventListener('mouseenter', () => {
+        rect = el.getBoundingClientRect();
+        el.classList.add('is-tilting');
+      });
       el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        el.style.transform = `perspective(1000px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+        if (!rect) rect = el.getBoundingClientRect();
+        px = (e.clientX - rect.left) / rect.width - 0.5;
+        py = (e.clientY - rect.top) / rect.height - 0.5;
+        if (!frame) frame = requestAnimationFrame(apply);
       });
       el.addEventListener('mouseleave', () => {
+        if (frame) cancelAnimationFrame(frame);
+        frame = 0;
+        rect = null;
+        el.classList.remove('is-tilting');
         el.style.transform = '';
       });
     });
+    // La posición cambia al hacer scroll: invalidar el rect cacheado
+    window.addEventListener('scroll', () => invalidators.forEach(fn => fn()), { passive: true });
   }
 })();
